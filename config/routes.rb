@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
+  get '/',                        to: 'foundational_pages#index'
+  get '/index',                   to: 'foundational_pages#index'
+  get '/help',                    to: 'foundational_pages#help'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
