@@ -86,7 +86,6 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
-    devise-bootstrap-views (1.1.0)
     devise-i18n (1.9.2)
       devise (>= 4.7.1)
     diff-lcs (1.4.4)
@@ -287,7 +286,6 @@ DEPENDENCIES
   capybara (>= 2.15)
   coffee-rails (~> 4.2)
   devise
-  devise-bootstrap-views (~> 1.0)
   devise-i18n
   factory_bot_rails
   jbuilder (~> 2.5)
