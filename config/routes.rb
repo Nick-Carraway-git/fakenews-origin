@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users
+
+  root 'foundational_pages#index'
   get '/',                        to: 'foundational_pages#index'
   get '/index',                   to: 'foundational_pages#index'
   get '/help',                    to: 'foundational_pages#help'
