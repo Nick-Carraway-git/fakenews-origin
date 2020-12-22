@@ -46,6 +46,7 @@ gem 'devise-i18n'
 # omniauth-facebook
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem "omniauth-rails_csrf_protection"
 
 # Bootstrap
 gem 'bootstrap', '~> 4.5'
