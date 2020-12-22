@@ -43,6 +43,10 @@ gem 'devise'
 gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
 
+# omniauth-facebook
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 # Bootstrap
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
