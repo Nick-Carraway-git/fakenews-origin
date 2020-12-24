@@ -59,4 +59,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  protected
+
+    # プロバイダからのログインの場合に、登録情報変更にパスワードを不要とする。
+    def update_resource(resource, params)
+      if !(@user.provider.blank?)
+        resource.update_without_password(params)
+      else
+        resource.update_with_password(params)
+      end
+    end
 end
