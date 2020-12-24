@@ -18,6 +18,8 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
+ @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+
 .mw-md {
   max-width: 576px;
 }
@@ -28,4 +30,17 @@
 
 .alert-alert {
   @extend .alert-danger;
+}
+
+#logo {
+  font-size: 1.7em;
+  font-family: 'Courgette', cursive;
+  color: #ffea00;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#logo:hover {
+  color: #ffdc00;
+  text-decoration: none;
 }
