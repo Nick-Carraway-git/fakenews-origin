@@ -32,6 +32,29 @@
   @extend .alert-danger;
 }
 
+.main-container {
+  margin-top: 80px;
+  margin-bottom: 120px;
+}
+
+/* login, resistration */
+.container-login {
+  @extend .container-fluid;
+  border: 1px solid silver;
+  border-radius: 5px;
+  max-width: 576px;
+  padding: 2rem;
+}
+
+@media screen and (max-width: 765px) {
+  .container-login {
+    @extend .container-fluid;
+    border: none;
+    max-width: 576px;
+    padding: 2rem;
+  }
+}
+
 /* header */
 #logo {
   font-size: 1.7em;
@@ -55,6 +78,11 @@
 }
 
 /* footer */
+footer {
+  display: block;
+  background-color: #223a70;
+}
+
 .footer-parts-div {
   margin-left: -40px;
 }
