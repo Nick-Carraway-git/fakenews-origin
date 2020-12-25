@@ -32,6 +32,7 @@
   @extend .alert-danger;
 }
 
+/* header */
 #logo {
   font-size: 1.7em;
   font-family: 'Courgette', cursive;
@@ -43,4 +44,53 @@
 #logo:hover {
   color: #ffdc00;
   text-decoration: none;
+}
+
+.header-item a {
+  color: #f3f3f3 !important;
+}
+
+.header-item a:hover {
+  color: #d3d3d3 !important;
+}
+
+/* footer */
+.footer-parts-div {
+  margin-left: -40px;
+}
+
+.footer-parts {
+  margin-bottom: -2px;
+}
+
+.footer-parts li {
+  display: inline-block;
+  color: #f3f3f3;
+  text-decoration: none;
+}
+
+.footer-parts a {
+  display: inline-block;
+  color: #f3f3f3;
+  text-decoration: none;
+}
+
+.footer-parts .text-link {
+  font-size: 0.8em;
+  margin-left: -5px;
+}
+
+.footer-parts span {
+  display: inline-block;
+  width: 0;
+  overflow: hidden;
+  margin-right: -7px;
+  margin-left: -2px;
+  border-left: 1px solid #f3f3f3;
+  height: 10px;
+}
+
+.platform-icon {
+  font-size: 1.6em;
+  color: #f3f3f3;
 }

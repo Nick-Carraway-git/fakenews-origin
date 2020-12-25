@@ -1,26 +1,35 @@
-<footer>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-bottom" style="background-color:#444;">
-  	<div class="container">
-      <div class="">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
-          </li>
-        </ul>
-      </div>
-      <div class="">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
-          </li>
-        </ul>
-      </div>
+<footer class="footer mt-auto py-3 fixed-bottom" style="display:block; background-color:#223a70;">
+  <div class="container">
+    <div class="footer-parts-div">
+      <ul class="footer-parts text-links">
+        <li><%= link_to "ヘルプ", help_path, class: 'nav-link text-link' %><span>|</span></li>
+        <li><%= link_to "利用規約", terms_path, class: 'nav-link text-link' %><span>|</span></li>
+        <li><%= link_to "プライバシーポリシー", '#', class: 'nav-link text-link' %></li>
+      </ul>
     </div>
-  </nav>
+    <div class="footer-parts-div">
+      <ul class="footer-parts platform-icon-links">
+        <li>
+          <%= link_to root_url, class: 'nav-link youtube' do %>
+            <i class="fab fa-youtube platform-icon"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_url, class: 'nav-link facebook' do %>
+            <i class="fab fa-facebook platform-icon"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_url, class: 'nav-link twitter' do %>
+            <i class="fab fa-twitter platform-icon"></i>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_url, class: 'nav-link instagram' do %>
+            <i class="fab fa-instagram platform-icon"></i>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </div>
 </footer>
