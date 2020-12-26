@@ -56,6 +56,38 @@
 }
 
 /* header */
+/* hamberger */
+.navbar-toggler {
+  padding-top: 5px;
+  padding-bottom: 8px;
+  // padding-top: 10px;
+  // padding-bottom: 10px;
+  // border-radius: 50%;
+  border: 1px solid #ffea00 !important;
+}
+
+.navbar-toggler span {
+  vertical-align: 10%;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #ffea00;
+}
+
+.fa-buffer {
+  font-size: 15px;
+  color: #ffea00;
+}
+
+.bgimage {
+  background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), image-url('newshead.jpg');
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center center;
+  background-size: cover;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
+
 #logo {
   font-size: 1.7em;
   font-family: 'Courgette', cursive;
