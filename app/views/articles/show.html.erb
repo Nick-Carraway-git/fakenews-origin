@@ -1,1 +1,6 @@
-<%= @article.title %>
+<p><%= "【題目】#{@article.title}" %></p>
+<p><%= "【本文】#{@article.content}" %></p>
+<span>【カテゴリ】</span>
+<% @article.categories.each do |category| %>
+  <%= category.name %>
+<% end %>

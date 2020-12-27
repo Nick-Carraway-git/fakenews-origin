@@ -5,5 +5,14 @@
   <div class="field">
     <%= f.text_area :content %>
   </div>
+  <div class="field">
+    <%= f.label :category, 'カテゴリ' %>
+    <%= f.collection_check_boxes(:category_ids, Category.all, :id, :name) do |category| %>
+      <%= category.label do %>
+        <%= category.check_box %>
+        <%= category.text %>
+      <% end %>
+    <% end %>
+  </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
