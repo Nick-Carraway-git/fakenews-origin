@@ -22,6 +22,11 @@
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
+                <%= link_to new_article_path, class: 'nav-link article-icon' do %>
+                  <i class="far fa-newspaper"></i>
+                <% end %>
+              </li>
+              <li class="nav-item">
                 <%#= link_to favorites_path, class: 'nav-link hot' do %>
                   <i class="fas fa-fire"></i>
                 <%# end %>

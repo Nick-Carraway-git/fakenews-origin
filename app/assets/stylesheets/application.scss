@@ -187,10 +187,6 @@ footer {
   background-color: #223a70;
 }
 
-.footer-parts-div {
-  margin-left: -40px;
-}
-
 .footer-parts {
   margin-bottom: -2px;
 }
@@ -225,4 +221,18 @@ footer {
 .platform-icon {
   font-size: 1.6em;
   color: #f3f3f3;
+}
+
+/* article(new) */
+.article-new-field {
+  margin: 20px 0;
+}
+
+.title-box {
+  width: 100%;
+  height: 35px;
+}
+
+.content-box {
+  width: 100%;
 }
