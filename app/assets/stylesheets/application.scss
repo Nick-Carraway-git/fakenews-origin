@@ -111,6 +111,38 @@
   color: #d3d3d3 !important;
 }
 
+/* top-heading */
+.top-heading {
+  font-size: 28px;
+  text-align: center;
+  color: #f3f3f3;
+}
+
+.top-heading-text {
+  margin-bottom: 25px;
+}
+
+/* index (foundational)*/
+.guide {
+  margin-top: 100px;
+}
+
+@media screen and (max-width: 765px) {
+  .guide {
+    margin-top: 50px;
+  }
+  .servise-guide-image {
+    display: none;
+  }
+  .system-guide-image {
+    display: none;
+  }
+}
+
+.resistration-guide {
+  text-align: center;
+}
+
 /* footer */
 footer {
   display: block;
