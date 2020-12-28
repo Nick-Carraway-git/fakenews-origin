@@ -113,13 +113,9 @@
 
 /* top-heading */
 .top-heading {
-  font-size: 28px;
+  font-size: 48px;
   text-align: center;
   color: #f3f3f3;
-}
-
-.top-heading-text {
-  margin-bottom: 25px;
 }
 
 /* index (foundational)*/
@@ -141,6 +137,48 @@
 
 .resistration-guide {
   text-align: center;
+  margin-bottom: 200px;
+}
+
+/* button layout */
+.resistration-button {
+  display: inline-block;
+  color: #f3f3f3;
+  background: linear-gradient(to right, #026be2, #223a70);
+  position: relative;
+  text-transform: uppercase;
+  font-family: sans-serif;
+  font-weight: bold;
+  margin: 20px 18px;
+  padding: 15px 30px;
+  letter-spacing: 1px;
+  // cursor: pointer;
+  font-size: 21px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.resistration-button:hover {
+  color: #f3f3f3;
+  text-decoration: none;
+}
+
+.resistration-button:before {
+  content: "";
+  position: absolute;
+  height: 100px;
+  width: 20px;
+  background: #f3f3f3;
+  box-shadow: 0 0 10px #f3f3f3;
+  filter: blur(1px);
+  opacity: 0.9;
+  top: -30px;
+  transition: 0.7s;
+  transform: rotate(-20deg) translateX(-60px);
+}
+
+.resistration-button:hover:before {
+  transform: rotate(-20deg) translate(140px, 70px);
 }
 
 /* footer */
