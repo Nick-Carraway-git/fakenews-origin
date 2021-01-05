@@ -1,7 +1,7 @@
 <p><%= "【題目】#{@article.title}" %></p>
+<%= image_tag @article.image.variant(combine_options:{resize:"300x300^",crop:"300x300+0+0",gravity: :center}).processed if @article.image.attached? %>
 <p><%= "【本文】#{@article.content}" %></p>
 <span>【カテゴリ】</span>
 <% @article.categories.each do |category| %>
   <%= category.name %>
 <% end %>
-<%= image_tag @article.image.variant(combine_options:{resize:"300x300^",crop:"300x300+0+0",gravity: :center}).processed if @article.image.attached? %>
