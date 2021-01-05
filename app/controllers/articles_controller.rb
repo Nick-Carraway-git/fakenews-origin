@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.build(article_params)
+    @article.image.attach(params[:article][:image])
     if @article.save
       redirect_to root_url
     else
@@ -22,6 +23,6 @@ class ArticlesController < ApplicationController
   private
 
     def article_params
-      params.require(:article).permit(:title, :content, { category_ids: [] })
+      params.require(:article).permit(:title, :content, :image, { category_ids: [] })
     end
 end
