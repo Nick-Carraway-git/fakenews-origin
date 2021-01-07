@@ -1,12 +1,1 @@
-<div class="article-box">
-  <% @article.categories.each do |category| %>
-    <div class="category-tag"><%= category.name %></div>
-  <% end %>
-  <h2 class="title-decoration"><%= "#{@article.title}" %></h2>
-  <p class="time-decoration text-muted"><%= " #{@article.created_at.strftime('%Y/%m/%d %H:%M')}" %></p>
-  <div class="picture-decoration-box">
-    <%= image_tag @article.image, class: 'picture-decoration' %>
-  </div>
-  <p class="description-decoration text-muted"><%= @article.image_description %></p>
-  <p class="content-decoration"><%= "#{@article.content}" %></p>
-</div>
+<%= render 'article_body', article: @article %>
