@@ -1,3 +1,3 @@
 <% @chats.each do |chat| %>
-  <p><%= chat.message %></p>
+  <span><%= chat.user.name %></span><p><%= chat.message %></p>
 <% end %>

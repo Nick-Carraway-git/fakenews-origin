@@ -11,6 +11,7 @@ class BoardroomChannel < ApplicationCable::Channel
   def speak(message)
     chat = Chat.new(message: message['message'][0], user_id: message['message'][1].to_i, boardroom_id: message['message'][2].to_i)
     chat.save
-    ActionCable.server.broadcast 'boardroom_channel', message: message['message'][0]
+    username = chat.user.name
+    ActionCable.server.broadcast 'boardroom_channel', message: message['message'][0], username: username
   end
 end

@@ -7,6 +7,7 @@ App.boardroom = App.cable.subscriptions.create "BoardroomChannel",
 
   received: (data) ->
     # Called when there's incoming data on the websocket for this channel
+    $('#chats').append("<span>"+data["username"]+"</span>");
     $('#chats').append("<p>"+data["message"]+"</p>");
 
   speak: (message) ->
