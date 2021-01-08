@@ -1,13 +1,17 @@
 <div class="previews">
-  <div class="slider">
+  <ul class="slider">
     <% articles.each do |article| %>
-      <%= image_tag article.image %>
+      <li>
+        <a href="<%= article_path(article) %>"><img src="<%= url_for(article.image) %>" alt="" class="slider-img"></a>
+      </li>
     <% end %>
     <!-- slide placeholder image -->
     <% if articles.size < MAX_SLIDE_NUM %>
       <% (MAX_SLIDE_NUM - articles.size).times do %>
-        <%= image_tag 'sea' %>
+        <li>
+          <%= image_tag 'sea' %>
+        </li>
       <% end %>
     <% end %>
-  </div>
+  </ul>
 </div>
