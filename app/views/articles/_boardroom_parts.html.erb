@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="col-md-6">
+      <p>クリックしてボードを作成</p>
+      <%= form_with model: @boardroom do |f| %>
+        <%= f.hidden_field :article_id, :value => article.id %>
+        <%= f.submit 'ボードを作成' %>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <p>参加済トークルーム一覧</p>
+      <% if @boardrooms %>
+        <% @boardrooms.first(10).each do |boardroom| %>
+          <%= "ルーム#{boardroom.id}" %>
+        <% end %>
+      <% end %>
+
+      <p>未参加トークルーム一覧</p>
+      <% if @past_boardrooms %>
+        <% @past_boardrooms.each do |boardroom| %>
+          <%= "ルーム#{boardroom.id}" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

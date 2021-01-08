@@ -4,7 +4,9 @@ class ArticlesController < ApplicationController
     if user_signed_in?
       @boardroom = Boardroom.new
       @boardrooms = Boardroom.where(article_id: @article)
-      @past_boardrooms = @boardrooms.last(@boardrooms.length - 10)
+      if @boardrooms.size > 10
+        @past_boardrooms = @boardrooms.last(@boardrooms.length - 10)
+      end
       # @boardrooms = current_user.boardrooms
       # @nonboardrooms = Boardroom.where(id: UserBoardroom.where.not(user_id: current_user.id).pluck(:id))
     end
