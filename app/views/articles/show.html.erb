@@ -1,8 +1,24 @@
 <%= render 'article_body', article: @article %>
+
 <% if user_signed_in? %>
-  <h2>トークルーム作成</h2>
-  <%= form_with model: @boardroom do |f| %>
-    <%= f.hidden_field :article_id, :value => @article.id %>
-    <%= f.submit %>
-  <% end %>
+  <div class="row">
+    <div class="col-md-6">
+      <h2>トークルーム作成</h2>
+      <%= form_with model: @boardroom do |f| %>
+        <%= f.hidden_field :article_id, :value => @article.id %>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    <div class="col-md-6">
+      <h2>参加済トークルーム一覧</h2>
+      <% @boardrooms.first(10).each do |boardroom| %>
+        <%= "ルーム#{boardroom.id}" %>
+      <% end %>
+
+      <h2>未参加トークルーム一覧</h2>
+      <% @past_boardrooms.each do |boardroom| %>
+        <%= "ルーム#{boardroom.id}" %>
+      <% end %>
+    </div>
+  </div>
 <% end %>

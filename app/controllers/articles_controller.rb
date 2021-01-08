@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
     @article = Article.find_by(id: params[:id])
     if user_signed_in?
       @boardroom = Boardroom.new
+      @boardrooms = Boardroom.where(article_id: @article)
+      @past_boardrooms = @boardrooms.last(@boardrooms.length - 10)
       # @boardrooms = current_user.boardrooms
       # @nonboardrooms = Boardroom.where(id: UserBoardroom.where.not(user_id: current_user.id).pluck(:id))
     end
