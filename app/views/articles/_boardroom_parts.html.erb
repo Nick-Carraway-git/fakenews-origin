@@ -13,7 +13,7 @@
             最新のボード
           </button>
           <div class="dropdown-menu" aria-labelledby="br-dropdown">
-            <% @boardrooms.first(10).each do |boardroom| %>
+            <% @boardrooms.first(BRANDNEW_BOARD_NOM).each do |boardroom| %>
               <%= link_to boardroom_path(boardroom), target: :_blank, class: 'dropdown-item' do %>
                 <i class="far fa-newspaper"></i><%= "ボード#{boardroom.id}" %>
               <% end %>

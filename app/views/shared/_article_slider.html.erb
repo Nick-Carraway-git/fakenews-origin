@@ -1,10 +1,13 @@
 <div class="previews">
   <div class="slider">
-      <%= image_tag 'forest' %>
-      <%= image_tag 'railroad' %>
-      <%= image_tag 'sea' %>
-      <%= image_tag 'forest' %>
-      <%= image_tag 'railroad' %>
-      <%= image_tag 'sea' %>
+    <% articles.each do |article| %>
+      <%= image_tag article.image %>
+    <% end %>
+    <!-- slide placeholder image -->
+    <% if articles.size < MAX_SLIDE_NUM %>
+      <% (MAX_SLIDE_NUM - articles.size).times do %>
+        <%= image_tag 'sea' %>
+      <% end %>
+    <% end %>
   </div>
 </div>
