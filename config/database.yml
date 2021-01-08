@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: ym80i3kx4u8dth8s
-  username: oopcj1uoef3awukw
+  database: i2xbgc0l03enlic3
+  username: v8ugteddn0bwgvt8
   password: <%= ENV['DATABASE_PASSWORD'] %>
