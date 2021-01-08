@@ -243,9 +243,18 @@ footer {
 }
 
 /* article(show) */
-.article-box {
+.article-heading-box {
   margin: 90px 0 0 5px;
   text-align: center;
+}
+
+.article-body-box {
+  margin: 15px;
+  text-align: center;
+}
+
+.article-background {
+  background: red;
 }
 
 .category-tag {
@@ -284,4 +293,17 @@ footer {
 
 .content-decoration {
   font-size: 1.3em;
+}
+
+/* articles(boardroom-parts) */
+.boardrooms-list::after {
+  display:none;
+}
+
+.boardroom-creater {
+  text-align: center;
+}
+
+.boardroom-shower {
+  text-align: center;
 }
