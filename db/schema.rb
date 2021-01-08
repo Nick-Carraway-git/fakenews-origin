@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_08_104225) do
+ActiveRecord::Schema.define(version: 2021_01_08_110925) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 2021_01_08_104225) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "message"
+    t.bigint "user_id"
+    t.bigint "boardroom_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boardroom_id"], name: "index_chats_on_boardroom_id"
+    t.index ["user_id"], name: "index_chats_on_user_id"
+  end
+
   create_table "user_boardrooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "boardroom_id"
@@ -98,6 +108,8 @@ ActiveRecord::Schema.define(version: 2021_01_08_104225) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "users"
   add_foreign_key "boardrooms", "articles"
+  add_foreign_key "chats", "boardrooms"
+  add_foreign_key "chats", "users"
   add_foreign_key "user_boardrooms", "boardrooms"
   add_foreign_key "user_boardrooms", "users"
 end

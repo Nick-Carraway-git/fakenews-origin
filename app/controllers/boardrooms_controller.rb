@@ -1,6 +1,7 @@
 class BoardroomsController < ApplicationController
   def show
     @boardroom = Boardroom.find(params[:id])
+    @chats = @boardroom.chats
   end
 
   def create
