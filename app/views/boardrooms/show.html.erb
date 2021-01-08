@@ -1,6 +1,6 @@
 <p><%= "ルーム名：#{@boardroom.id}" %></p>
 
-<input type="text" data-behavior="boardroom_speaker">
+<input type="text" data-behavior="boardroom_speaker" data-user="<%= current_user.id %>" data-boardroom="<%= @boardroom.id %>">
 
 <div id="chats">
   <%= render "chats", collection: @chats %>
