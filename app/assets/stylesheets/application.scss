@@ -145,9 +145,9 @@
   margin-top: 100px;
 }
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 800px) {
   .guide {
-    margin-top: 50px;
+    margin-top: 40px;
   }
   .servise-guide-image {
     display: none;
@@ -160,6 +160,12 @@
 .resistration-guide {
   text-align: center;
   margin-bottom: 200px;
+}
+
+@media screen and (max-width: 765px) {
+  .resistration-guide-heading {
+    font-size: 24px;
+  }
 }
 
 /* button layout */
