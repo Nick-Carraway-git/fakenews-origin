@@ -1,1 +1,8 @@
 <%= render 'article_body', article: @article %>
+<% if user_signed_in? %>
+  <h2>トークルーム作成</h2>
+  <%= form_with model: @boardroom do |f| %>
+    <%= f.hidden_field :article_id, :value => @article.id %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

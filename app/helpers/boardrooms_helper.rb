@@ -1,0 +1,2 @@
+module BoardroomsHelper
+end

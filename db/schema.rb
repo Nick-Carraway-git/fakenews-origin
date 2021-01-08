@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_07_161548) do
+ActiveRecord::Schema.define(version: 2021_01_08_104225) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -53,10 +53,27 @@ ActiveRecord::Schema.define(version: 2021_01_07_161548) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "boardrooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_boardrooms_on_article_id"
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_boardrooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "boardroom_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boardroom_id"], name: "index_user_boardrooms_on_boardroom_id"
+    t.index ["user_id"], name: "index_user_boardrooms_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -80,4 +97,7 @@ ActiveRecord::Schema.define(version: 2021_01_07_161548) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "articles", "users"
+  add_foreign_key "boardrooms", "articles"
+  add_foreign_key "user_boardrooms", "boardrooms"
+  add_foreign_key "user_boardrooms", "users"
 end

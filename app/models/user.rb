@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_many :articles, dependent: :destroy
+  has_many :user_boardrooms
+  has_many :boardrooms, through: :user_boardrooms
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

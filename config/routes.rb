@@ -3,6 +3,7 @@ Rails.application.routes.draw do
                                     registrations: 'users/registrations' }
   resources :users,               only: [:show]
   resources :articles,            only: [:show, :new, :create, :destroy]
+  resources :boardrooms, only: [:show, :create]
 
   root 'foundational_pages#index'
   get '/',                        to: 'foundational_pages#index'
