@@ -3,19 +3,19 @@
     <div class="col-4 boardroom-creater">
       <%= form_with model: @boardroom do |f| %>
         <%= f.hidden_field :article_id, :value => article.id %>
-        <%= f.submit 'ボードを作成', class: 'btn btn-primary' %>
+        <%= f.submit 'ボードを作成', class: 'btn btn-boardroom' %>
       <% end %>
     </div>
     <div class="col-4 boardroom-shower">
       <% if @boardrooms %>
         <div class="dropdown">
-          <button type="button" id="br-dropdown" class="btn btn-secondary dropdown-toggle boardrooms-list" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            参加中のボード
+          <button type="button" id="br-dropdown" class="btn dropdown-toggle boardrooms-list btn-boardroom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            最新のボード
           </button>
           <div class="dropdown-menu" aria-labelledby="br-dropdown">
             <% @boardrooms.first(10).each do |boardroom| %>
-              <%= link_to boardroom_path(boardroom), class: 'dropdown-item' do %>
-                <i class="far fa-newspaper"></i><%= "ルーム#{boardroom.id}" %>
+              <%= link_to boardroom_path(boardroom), target: :_blank, class: 'dropdown-item' do %>
+                <i class="far fa-newspaper"></i><%= "ボード#{boardroom.id}" %>
               <% end %>
             <% end %>
           </div>
@@ -23,12 +23,24 @@
       <% end %>
     </div>
     <div class="col-4 boardroom-shower">
-      <p>未参加トークルーム一覧</p>
       <% if @past_boardrooms %>
-        <% @past_boardrooms.each do |boardroom| %>
-          <%= "ルーム#{boardroom.id}" %>
-        <% end %>
+        <div class="dropdown">
+          <button type="button" id="pbr-dropdown" class="btn dropdown-toggle past-boardrooms-list btn-boardroom" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            過去のボード
+          </button>
+          <div class="dropdown-menu" aria-labelledby="pbr-dropdown">
+            <% @past_boardrooms.each do |boardroom| %>
+              <%= link_to boardroom_path(boardroom), target: :_blank, class: 'dropdown-item' do %>
+                <i class="far fa-newspaper"></i><%= "ボード#{boardroom.id}" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
 <% end %>
+
+<%# @past_boardrooms.each do |boardroom| %>
+  <%#= "ルーム#{boardroom.id}" %>
+<%# end %>

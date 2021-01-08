@@ -8,7 +8,7 @@ class BoardroomsController < ApplicationController
     @boardroom = Boardroom.new(boardroom_params)
     @boardroom.save
     current_user.user_boardrooms.create(boardroom_id: @boardroom.id)
-    redirect_to root_url
+    redirect_to boardroom_path(@boardroom)
   end
 
   private

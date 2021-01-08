@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
     @article.image.attach(params[:article][:image])
     if @article.save
-      redirect_to root_url
+      redirect_to article_path(@article)
     else
       render root_url
     end
