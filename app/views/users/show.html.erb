@@ -1,44 +1,58 @@
-<div class="row">
-  <section class="user_info col-sm-5 col-12">
-    <%if @user.image.attached? %>
-      <%= image_tag @user.image.variant(combine_options:{resize:"600x600^",crop:"600x600+0+0",gravity: :center}).processed, class: "avator" %>
-    <% else %>
-      <%= image_tag 'default.jpg', class: "avator" %>
-    <% end %>
-  </section>
-  <section class="stats col-sm-7 col-12">
-    <h3><%= @user.name %></h3>
-    <% if @user == current_user %>
-      <%= link_to 'プロフィールを編集', edit_user_registration_path, class: 'profile-edit-button' %>
-    <% end %>
-    <div class="follow-stats-list">
-      <%#= render 'shared/followstats' %>
-    </div>
-    <div class="introduce">
-      <%= @user.introduce %>
-    </div>
-    <%#= render 'follow_form' if user_signed_in? %>
-  </section>
+<div class="user-profile-box">
+  <div class="row">
+    <section class="user_info col-sm-5 col-12">
+      <%if @user.image.attached? %>
+        <%= image_tag @user.image.variant(combine_options:{resize:"600x600^",crop:"600x600+0+0",gravity: :center}).processed, class: "avator" %>
+      <% else %>
+        <%= image_tag 'default.jpg', class: "avator" %>
+      <% end %>
+    </section>
+    <section class="stats col-sm-7 col-12">
+      <h3><%= @user.name %></h3>
+      <% if @user == current_user %>
+        <%= link_to 'プロフィールを編集', edit_user_registration_path, class: 'profile-edit-button' %>
+      <% end %>
+      <div class="follow-stats-list">
+        <%#= render 'shared/followstats' %>
+      </div>
+      <div class="introduce">
+        <%= @user.introduce %>
+      </div>
+      <%#= render 'follow_form' if user_signed_in? %>
+    </section>
+  </div>
 </div>
 
-<div class="row">
-  <div class="row col-8">
-    <% if @user.articles.any? %>
-      <% @articles.each do |article| %>
-        <button type="button" class="mordal-button col-6" style="display:inline-block;" data-toggle="modal" data-target="#mordal-<%= article.id %>">
-          <%= image_tag article.image.variant(combine_options:{resize:"900x900^",crop:"900x900+0+0",gravity: :center}).processed, class: "thumbnail img-thumbnail" %>
-          <div class="mask">
-        		<div class="caption"><%= article.title %></div>
-        	</div>
-        </button>
-        <% @mordal_article = article %>
-        <ol class="articles">
-          <%= render 'articles/article_mordal', article: @mordal_article %>
-        </ol>
+<div class="user-articles-box">
+  <div class="row">
+    <div class="col-8">
+      <h5 class="user-articles-heading">投稿した記事</h5>
+      <% if @user.articles.any? %>
+        <div class="row">
+          <% @articles.each do |article| %>
+            <button type="button" class="modal-button col-6" style="display:inline-block;" data-toggle="modal" data-target="#mordal-<%= article.id %>">
+              <%= image_tag article.image.variant(combine_options:{resize:"900x900^",crop:"900x900+0+0",gravity: :center}).processed, class: "thumbnail img-thumbnail" %>
+              <div class="mask">
+            		<div class="caption"><%= article.title %></div>
+            	</div>
+            </button>
+            <% @mordal_article = article %>
+            <ol class="articles">
+              <%= render 'articles/article_mordal', article: @mordal_article %>
+            </ol>
+          <% end %>
+        </div>
       <% end %>
-    <% end %>
-  </div>
-  <div class="row col-4">
-    aaaaaa
+    </div>
+    <div class="col-4">
+      <h5 class="user-boards-heading">参加したボード</h5>
+      <% if @user.boardrooms.any? %>
+          <% @boards.each do |board| %>
+            <ul>
+              <li><%= board.id %></li>
+            </ul>
+          <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

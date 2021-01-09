@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks',
                                     registrations: 'users/registrations' }
   resources :users,               only: [:show]
-  resources :articles,            only: [:show, :new, :create, :destroy]
+  resources :articles,            only: [:show, :new, :create, :destroy, :edit]
   resources :boardrooms, only: [:show, :create]
 
   root 'foundational_pages#index'

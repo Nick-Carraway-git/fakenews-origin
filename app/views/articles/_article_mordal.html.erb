@@ -1,23 +1,34 @@
 <div class="modal fade" id="mordal-<%= article.id %>" tabindex="-1" role="dialog" aria-labelledby="articlesMordalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document"">
-    <div class="modal-content">
+    <div class="modal-content article-modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="articlesModalLabel">Modal</h5>
-        <button type="button" class="btn btn-warning btn-lg shiny mordal-stopper" data-dismiss="modal" aria-hidden="true">Cancel</button>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <h5 class="modal-title" id="articlesModalLabel"><%= article.title.slice(0..20) %></h5>
+        <!--<button type="button" class="btn btn-warning btn-lg shiny mordal-stopper" data-dismiss="modal" aria-hidden="true">Cancel</button>-->
+        <button type="button" class="close close-btn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true"><i class="fas fa-times"></i></span>
         </button>
       </div>
       <div class="modal-body">
-        <!-- 通常の投稿の時 -->
+        <p class="modal-time text-muted"><%= " #{article.created_at.strftime('%Y/%m/%d %H:%M')}" %></p>
+        <!-- mordal content -->
         <%= link_to article_path(article), rocal: true, class: "article-link", target: :_blank do %>
-
           <% if article.image.attached? %>
-            <%= link_to article_path(article),target: :_blank, rocal: true do %>
-              <%= image_tag article.image.variant(combine_options:{resize:"900x900^",crop:"900x900+0+0",gravity: :center}).processed, class: "thumbnail thumnail-mordal" %>
+            <%= link_to article_path(article), rocal: true, target: :_blank do %>
+              <%= image_tag article.image.variant(combine_options:{resize:"900x900^",crop:"900x900+0+0",gravity: :center}).processed, class: "thumbnail thumnail-modal" %>
             <% end %>
           <% end %>
         <% end %>
+        <div class="article-modal-menu">
+          <div class="article-modal-item">
+            <%= link_to '記事を読む', article_path(article), rocal: true, class: "article-link btn btn-read", target: :_blank %>
+          </div>
+          <div class="article-modal-item">
+            <%= link_to '記事を編集', edit_article_path(article), rocal: true, class: "article-link btn btn-edit", target: :_blank %>
+          </div>
+          <div class="article-modal-item">
+            <%= link_to '記事を削除', article, class: "article-link btn btn-delete", method: :delete, data: { confirm: "本当によろしいですか?" } %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  before_action :correct_user,   only: :destroy
+
   def show
     @article = Article.find_by(id: params[:id])
     if user_signed_in?
@@ -27,11 +29,18 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
+    @article.destroy
+    redirect_to request.referrer || root_url
   end
 
   private
 
     def article_params
       params.require(:article).permit(:title, :content, :image, :image_description, { category_ids: [] })
+    end
+
+    def correct_user
+      @article = current_user.articles.find_by(id: params[:id])
+      redirect_to root_url if @article.nil?
     end
 end
