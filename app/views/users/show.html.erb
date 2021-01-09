@@ -27,10 +27,13 @@
       <% @articles.each do |article| %>
         <button type="button" class="mordal-button col-6" style="display:inline-block;" data-toggle="modal" data-target="#mordal-<%= article.id %>">
           <%= image_tag article.image.variant(combine_options:{resize:"900x900^",crop:"900x900+0+0",gravity: :center}).processed, class: "thumbnail img-thumbnail" %>
+          <div class="mask">
+        		<div class="caption"><%= article.title %></div>
+        	</div>
         </button>
-        <%# @mordal_micropost = micropost %>
-        <ol class="microposts">
-          <%#= render 'microposts/micropost_mordal', micropost: @mordal_micropost %>
+        <% @mordal_article = article %>
+        <ol class="articles">
+          <%= render 'articles/article_mordal', article: @mordal_article %>
         </ol>
       <% end %>
     <% end %>

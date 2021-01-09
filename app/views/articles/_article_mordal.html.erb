@@ -1,0 +1,24 @@
+<div class="modal fade" id="mordal-<%= article.id %>" tabindex="-1" role="dialog" aria-labelledby="articlesMordalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl" role="document"">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="articlesModalLabel">Modal</h5>
+        <button type="button" class="btn btn-warning btn-lg shiny mordal-stopper" data-dismiss="modal" aria-hidden="true">Cancel</button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- 通常の投稿の時 -->
+        <%= link_to article_path(article), rocal: true, class: "article-link", target: :_blank do %>
+
+          <% if article.image.attached? %>
+            <%= link_to article_path(article),target: :_blank, rocal: true do %>
+              <%= image_tag article.image.variant(combine_options:{resize:"900x900^",crop:"900x900+0+0",gravity: :center}).processed, class: "thumbnail thumnail-mordal" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
