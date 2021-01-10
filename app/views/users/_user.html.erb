@@ -1,1 +1,17 @@
-<%= user.name %>
+<div class="row col-12 col-md-4 follow-member-outline">
+  <div class="col-4 follow-member-info">
+    <% if user.image.attached? %>
+      <%= link_to user_path(user) do %>
+        <%= image_tag user.image.variant(combine_options:{resize:"200x200^",crop:"200x200+0+0",gravity: :center}).processed, class: "small-avator img-fluid" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(user) do %>
+        <%= image_tag 'default.jpg', class: "small-avator img-fluid" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-8 follow-member-info">
+    <p><%= user.name %></p>
+    <p><%= user.articles.count %></p>
+  </div>
+</div>

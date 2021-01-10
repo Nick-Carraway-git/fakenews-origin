@@ -20,6 +20,8 @@
  @import "slick-theme";
  @import "slick";
  @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
+ // @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
 .mw-md {
@@ -37,6 +39,10 @@
 .main-container {
   margin-top: 80px;
   margin-bottom: 120px;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
 }
 
 /* login, resistration */
@@ -114,7 +120,7 @@
 
 #logo {
   font-size: 1.7em;
-  font-family: 'Courgette', cursive;
+  font-family: 'Courgette', cursive !important;
   color: #ffea00;
   letter-spacing: -1px;
   font-weight: bold;
@@ -271,6 +277,10 @@ footer {
   color: black;
 }
 
+.introduce {
+  margin: 15px 0;
+}
+
 .user-articles-box {
 
 }
@@ -294,6 +304,15 @@ footer {
   .user-boards-heading {
     font-size: 18px;
   }
+}
+
+.user-boards-list {
+  list-style: none;
+}
+
+.user-boards-item {
+  text-align: center;
+  margin-bottom: -5px;
 }
 
 /* user(show/follow) */
@@ -322,13 +341,55 @@ footer {
   }
 }
 
-.user-boards-list {
-  list-style: none;
+.follow-button {
+  float: right;
+  margin-top: -3px;
 }
 
-.user-boards-item {
+.btn-follow {
+  border: 1px solid black;
+  border-radius: 18px;
+}
+
+.btn-unfollow {
+  border: 1px solid black;
+  border-radius: 18px;
+}
+
+.follow-stats-list {
+
+}
+
+/* following / followed */
+.small-avator {
+  //width: 100%;
+  border-radius: 50%;
+  border: 2px solid silver;
+  max-width: 65px;
+  margin: 0 5px 10px;
+}
+
+.follow-heading {
   text-align: center;
-  margin-bottom: -5px;
+}
+
+@media screen and (max-width: 600px) {
+  .follow-heading {
+    font-size: 18px;
+  }
+}
+
+.follow-member-box {
+  margin: 27px auto;
+}
+
+.follow-member-outline {
+  margin-top: 20px;
+  //margin: 20px auto 0;
+}
+
+.follow-member-info {
+
 }
 
 /* mordal */
