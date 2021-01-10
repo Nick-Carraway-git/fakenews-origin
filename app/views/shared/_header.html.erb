@@ -23,12 +23,17 @@
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <%= link_to new_article_path, class: 'nav-link article-icon' do %>
-                  <i class="far fa-newspaper"></i>
+                  <i class="fas fa-feather-alt header-icon"></i>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to user_path(current_user), class: 'nav-link hot' do %>
+                  <i class="fas fa-user header-icon"></i>
                 <% end %>
               </li>
               <li class="nav-item">
                 <%#= link_to favorites_path, class: 'nav-link hot' do %>
-                  <i class="fas fa-fire"></i>
+                  <i class="fas fa-heart header-icon"></i>
                 <%# end %>
               </li>
               <li class="nav-item">
@@ -36,11 +41,18 @@
                   <%# if unchecked_notifications.any? %>
                     <i class="fa fa-circle" style="color: gold;"></i>
                   <%# end %>
-                  <i class="far fa-heart"></i>
+                  <i class="fas fa-paper-plane header-icon"></i>
                 <%# end %>
               </li>
               <li class="nav-item dropdown">
-    				    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></a>
+    				    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <!-- <i class="fas fa-user"></i> -->
+                  <% if current_user.image.attached? %>
+                    <%= image_tag current_user.image.variant(combine_options:{resize:"600x600^",crop:"600x600+0+0",gravity: :center}).processed, class: "header-avator" %>
+                  <% else %>
+                    <%= image_tag 'default.jpg', class: "header-avator" %>
+                  <% end %>
+                </a>
     				    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <%= link_to 'マイページ', '#', class: 'dropdown-item' %>
                   <%= link_to 'プロフィールの編集', edit_user_registration_path, class: 'dropdown-item' %>
@@ -48,11 +60,7 @@
                   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
     				    </div>
     			     </li>
-               <li class="nav-item">
-                 <%#= link_to new_micropost_path, class: 'nav-link picture-uproad' do %>
-                   <i class="far fa-images"></i>
-                 <%# end %>
-               </li>
+
         <% else %>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item header-item">

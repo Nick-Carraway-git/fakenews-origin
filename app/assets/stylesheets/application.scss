@@ -139,6 +139,19 @@ body {
   color: #d3d3d3 !important;
 }
 
+.header-avator {
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid silver;
+  max-width: 30px;
+}
+
+.header-icon {
+  font-size: 1.3em;
+  color: #f3f3f3;
+  vertical-align: -6px;
+}
+
 /* top-heading */
 .top-heading {
   font-size: 48px;
