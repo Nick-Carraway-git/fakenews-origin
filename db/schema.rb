@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_10_003146) do
+ActiveRecord::Schema.define(version: 2021_01_10_223650) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -77,6 +77,17 @@ ActiveRecord::Schema.define(version: 2021_01_10_003146) do
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
 
+  create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "article_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["article_id"], name: "index_favorites_on_article_id"
+    t.index ["created_at"], name: "index_favorites_on_created_at"
+    t.index ["user_id", "article_id"], name: "index_favorites_on_user_id_and_article_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followed_id"
@@ -120,6 +131,8 @@ ActiveRecord::Schema.define(version: 2021_01_10_003146) do
   add_foreign_key "boardrooms", "articles"
   add_foreign_key "chats", "boardrooms"
   add_foreign_key "chats", "users"
+  add_foreign_key "favorites", "articles"
+  add_foreign_key "favorites", "users"
   add_foreign_key "user_boardrooms", "boardrooms"
   add_foreign_key "user_boardrooms", "users"
 end

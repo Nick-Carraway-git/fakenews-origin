@@ -11,6 +11,8 @@ class User < ApplicationRecord
                                   dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :favorites, dependent: :destroy
+  has_many :favoring, through: :favorites, source: :article
 
   has_one_attached :image
   # Include default devise modules. Others available are:
@@ -47,5 +49,23 @@ class User < ApplicationRecord
   # 現在のユーザーがフォローしてたらtrueを返す
   def following?(other_user)
     following.include?(other_user)
+  end
+
+  # 投稿をいいねする
+  def favor(favorite_article)
+    favoring << favorite_article
+  end
+
+  # いいねを解除する
+  def unfavor(favorite_article)
+    self.favorites.find_by(article_id: favorite_article.id).destroy
+  end
+
+  # お気に入り済みならtrueを返す
+  def favoring?(favorite_article_id)
+    nowFavorite = Favorite.find_by(article_id: favorite_article_id)
+    if nowFavorite != nil
+      return nowFavorite[:user_id] == self.id
+    end
   end
 end

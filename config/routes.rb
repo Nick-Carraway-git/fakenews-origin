@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :users,               only: [:show]
   resources :articles,            only: [:show, :new, :create, :destroy, :edit]
   resources :relationships,       only: [:create, :destroy]
-  resources :boardrooms, only: [:show, :create]
+  resources :boardrooms,          only: [:show, :create]
+  resources :favorites,           only: [:create, :destroy]
 
   resources :users do
     member do
