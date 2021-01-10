@@ -8,10 +8,14 @@
       <% end %>
     </section>
     <section class="stats col-sm-7 col-12">
-      <h3><%= @user.name %></h3>
-      <% if @user == current_user %>
-        <%= link_to 'プロフィールを編集', edit_user_registration_path, class: 'profile-edit-button' %>
-      <% end %>
+      <h3>
+        <%= @user.name %>
+        <% if @user == current_user %>
+          <%= link_to edit_user_registration_path, class: 'profile-edit-button' do %>
+            <i class="fas fa-pen"></i>
+          <% end %>
+        <% end %>
+      </h3>
       <div class="follow-stats-list">
         <%#= render 'shared/followstats' %>
       </div>
@@ -23,10 +27,12 @@
   </div>
 </div>
 
+<hr/>
+
 <div class="user-articles-box">
   <div class="row">
     <div class="col-8">
-      <h5 class="user-articles-heading">投稿した記事</h5>
+      <h5 class="user-articles-heading">My Articles</h5>
       <% if @user.articles.any? %>
         <div class="row">
           <% @articles.each do |article| %>
@@ -45,12 +51,16 @@
       <% end %>
     </div>
     <div class="col-4">
-      <h5 class="user-boards-heading">参加したボード</h5>
+      <h5 class="user-boards-heading">My Borads</h5>
       <% if @user.boardrooms.any? %>
           <% @boards.each do |board| %>
-            <ul>
-              <li><%= board.id %></li>
-            </ul>
+          <ul class="user-boards-list">
+            <li class="user-boards-item">
+              <%= link_to boardroom_path(board.id), class: "btn btn-read" do %>
+                <%= "#{board.article.title} #{board.id}" %>
+              <% end %>
+            </li>
+          </ul>
           <% end %>
       <% end %>
     </div>
