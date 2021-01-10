@@ -296,6 +296,32 @@ footer {
   }
 }
 
+/* user(show/follow) */
+.follow-stats {
+  overflow: auto;
+  margin-top: 0;
+  a {
+    //float: left;
+    padding: 0 10px;
+    color: black;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  h3 {
+    display: inline-block;
+    margin-right: 10px;
+    font-weight: normal;
+  }
+  strong {
+    display: inline-block;
+  }
+}
+
 .user-boards-list {
   list-style: none;
 }
