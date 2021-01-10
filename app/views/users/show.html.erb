@@ -18,12 +18,11 @@
       </h3>
       <div class="follow-stats-list">
         <%= render 'shared/follow_stats' %>
-        <%= render 'follow_form' %>
       </div>
       <div class="introduce">
         <%= @user.introduce %>
       </div>
-      <%#= render 'follow_form' if user_signed_in? %>
+      <%= render 'follow_form' %>
     </section>
   </div>
 </div>
