@@ -626,3 +626,16 @@ footer {
 .boardroom-shower {
   text-align: center;
 }
+
+.bottom-button {
+  width: 100%;
+  background-color: #e0ffff;
+  border: 2px solid #fff;
+  box-shadow: 0 0 0 2px #e0ffff;
+  color: #0095d9;
+  padding: 0.6em;
+}
+
+.bottom-button:hover {
+  color:#4c6cb3;
+}

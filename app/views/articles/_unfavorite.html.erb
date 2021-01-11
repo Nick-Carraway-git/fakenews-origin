@@ -1,9 +1,9 @@
 <%= form_with(model: current_user.favorites.find_by(article_id: @article.id),
             html: { method: :delete }, remote: true) do |f| %>
 
-  <%= f.button type: "submit", name: nil,　class: "form-control" do %>
-    <i class="fas fa-heart unfavor-heart"></i>
-  <% end %>
-  
-  <%#= f.submit "Unfavor", class: "btn" %>
+  <%#= f.button type: "submit", name: nil,　class: "form-control" do %>
+    <!-- <i class="fas fa-heart unfavor-heart"></i> -->
+  <%# end %>
+
+  <%= f.submit "お気に入りを解除", class: "btn bottom-button" %>
 <% end %>

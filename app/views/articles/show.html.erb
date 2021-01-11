@@ -4,10 +4,10 @@
 <%= render 'article_body', article: @article %>
 
 <div class="row bottom-menu">
-  <div class="col-6" style="width:100%; background-color: blue;">
+  <div class="col-6">
     <%= render 'favorite_form', article_id: @article.id %>
   </div>
-  <div class="col-6" style="width:100%; background-color: red;">
-    <%= link_to 'トップへ戻る', '#', class: 'btn' %>
+  <div class="col-6">
+    <%= link_to 'トップへ戻る', '#', class: 'btn bottom-button' %>
   </div>
 </div>

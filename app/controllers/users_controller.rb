@@ -19,4 +19,11 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_follow'
   end
+
+  def favoring
+    @title = "Favorite Articles"
+    @user  = User.find(params[:id])
+    @articles = @user.favoring
+    render 'articles/show_favorite'
+  end
 end

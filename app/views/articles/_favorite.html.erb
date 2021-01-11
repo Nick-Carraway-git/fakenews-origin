@@ -1,9 +1,9 @@
 <%= form_with(model: current_user.favorites.build, remote: true) do |f| %>
   <div><%= hidden_field_tag :article_id, @article.id %></div>
 
-  <%= f.button type: "submit", name: nil,　class: "form-control" do %>
-    <i class="fas fa-heart favor-heart"></i>
-  <% end %>
+  <%#= f.button type: "submit", name: nil,　class: "form-control" do %>
+    <!-- <i class="fas fa-heart favor-heart"></i> -->
+  <%# end %>
 
-  <%#= f.submit "Favor", class: "btn btn-primary" %>
+  <%= f.submit "お気に入りに登録", class: "btn bottom-button" %>
 <% end %>
