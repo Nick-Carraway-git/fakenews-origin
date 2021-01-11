@@ -297,13 +297,13 @@ footer {
 
 /* favorite-articlesでも使用 */
 .user-articles-box {
-
+  margin: 16px 0;
 }
 
 .user-articles-heading {
   width: 100%;
   text-align: center;
-  margin: 10px 0 20px;
+  margin: 3px 0 20px;
 }
 
 .user-boards-heading {
@@ -333,6 +333,27 @@ footer {
 .not-found-message {
   text-align: center;
   margin: 40px 0;
+}
+
+/* user(tab) */
+.menu-tab-box {
+  margin-bottom: 40px;
+}
+
+.menu-tab {
+  font-size: 12px;
+
+}
+
+@media screen and (min-width: 800px) {
+  .menu-tab {
+    font-size: 16px;
+  }
+}
+
+.menu-tab span {
+  text-decoration: none;
+  color: rgba(0,0,0,0.7);
 }
 
 /* user(show/follow) */
