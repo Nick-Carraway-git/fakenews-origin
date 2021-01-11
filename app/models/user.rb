@@ -3,8 +3,8 @@ class User < ApplicationRecord
   has_many :user_boardrooms
   has_many :boardrooms, through: :user_boardrooms
   has_many :chats
-  has_many :send_minimail, class_name: "Minimail", foreign_key: "sender_id", dependent: :destroy
-  has_many :recieve_minimail, class_name: "Minimail", foreign_key: "reciever_id", dependent: :destroy
+  has_many :send_minimails, class_name: "Minimail", foreign_key: "sender_id", dependent: :destroy
+  has_many :recieve_minimails, class_name: "Minimail", foreign_key: "reciever_id", dependent: :destroy
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
