@@ -15,6 +15,10 @@
           <%= link_to edit_user_registration_path, class: 'profile-edit-button' do %>
             <i class="fas fa-pen"></i>
           <% end %>
+        <% else %>
+          <%= link_to new_minimail_path(reciever_id: @user.id), class: 'profile-edit-button' do %>
+            <i class="fas fa-paper-plane"></i>
+          <% end %>
         <% end %>
         <%= render 'follow_form' %>
       </h3>

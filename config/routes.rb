@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   resources :boardrooms,          only: [:show, :create]
   resources :favorites,           only: [:create, :destroy]
+  resources :minimails,           only: [:index, :show, :new, :create, :destroy]
 
   resources :users do
     member do
