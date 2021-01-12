@@ -94,7 +94,7 @@ body {
   background-size: cover;
   padding-top: 180px;
   padding-bottom: 180px;
-  margin-bottom: 170px;
+  margin-bottom: 130px;
 }
 
 @media screen and (max-width: 700px) {
@@ -106,7 +106,7 @@ body {
     background-size: cover;
     padding-top: 160px;
     padding-bottom: 160px;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
   }
 
   .top-heading {
@@ -186,14 +186,24 @@ body {
   color: #f3f3f3;
 }
 
+/* slider */
+.slider-heading {
+  text-align: center;
+  color: #4f595d;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
 /* topics */
 .topics {
-  margin-top: 150px;
+  margin-top: 170px;
+  margin-bottom: 200px;
+  color: #4f595d;
 }
 
 @media screen and (max-width: 800px) {
   .topics {
-    margin-top: 100px;
+    margin-top: 150px;
   }
 }
 
@@ -208,6 +218,7 @@ body {
 
 .topics-heading {
   position: relative;
+  margin-bottom: 65px;
 }
 
 .topics-heading h4 {
@@ -217,8 +228,66 @@ body {
 }
 
 .ranking-info {
-  border-right: 1px solid silver;
+
 }
+
+@media screen and (min-width: 770px){
+  .ranking-info {
+    border-right: 1px solid silver;
+  }
+}
+
+.rankers-ul {
+  width: 95%;
+  margin: 0 auto 30px;
+}
+
+.ranker-li {
+  margin: 0 0 15px 10px;
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+.ranker-title {
+  display: block;
+  color: #4f595d;
+  background-color: #fff;
+  padding: 8px 15px;
+  border-radius: 3px;
+}
+
+.ranker-title:hover {
+  color: #080808;
+}
+
+.fa-crown {
+  color: #ffd700;
+  font-size: 1.2em;
+  padding-right: 10px;
+}
+
+.news-ul {
+  width: 95%;
+  margin: 0 auto 30px;
+}
+
+.news-li {
+  margin: 0 0 15px 15px;
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+.news-li span {
+  font-size: 0.9em;
+}
+
+.news-li p {
+  color: #080808;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  font-weight: 300;
+}
+
 /* index (foundational)*/
 .guide {
   margin-top: 100px;

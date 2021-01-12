@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :favorites, dependent: :destroy
   has_many :favoring, through: :favorites, source: :article
+  has_many :favoried, through: :articles, source: :favorite
 
   has_one_attached :image
   # Include default devise modules. Others available are:

@@ -1,0 +1,16 @@
+<li class="row ranker-li no-gutters">
+  <div class="col-3">
+    <% if ranker.image.attached? %>
+      <%= link_to user_path(ranker) do %>
+        <i class="fas fa-crown"></i><%= image_tag ranker.image.variant(combine_options:{resize:"200x200^",crop:"200x200+0+0",gravity: :center}).processed, class: "mail-avator img-fluid" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(ranker) do %>
+        <i class="fas fa-crown"></i><%= image_tag 'default.jpg', class: "mail-avator img-fluid" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-9">
+    <%= link_to ranker.name, user_path(ranker), class: 'ranker-title' %>
+  </div>
+</li>

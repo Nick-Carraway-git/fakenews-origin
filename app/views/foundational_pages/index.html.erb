@@ -1,11 +1,35 @@
 <%= render 'shared/article_slider', articles: @articles %>
-<%= render 'layouts/flash_messages' %>
 
 <div class="topics row no-gutters">
   <section class="col-md-6 topics-heading ranking-info">
     <h4>人気のライター</h4>
+    <% if @rankers.any? %>
+      <ul class="rankers-ul">
+        <%= render partial: 'users/ranking', collection: @rankers, as: :ranker %>
+      </ul>
+    <% end %>
   </section>
   <section class="col-md-6 topics-heading update-info">
     <h4>更新情報</h4>
+    <ul class="news-ul">
+      <li class="row news-li no-gutters">
+        <div class="col-12">
+          <span>1919.01.01</span>
+          <p>XXXXXXXX</p>
+        </div>
+      </li>
+      <li class="row news-li no-gutters">
+        <div class="col-12">
+          <span>1918.12.26</span>
+          <p>YYYYYYYY</p>
+        </div>
+      </li>
+      <li class="row news-li no-gutters">
+        <div class="col-12">
+          <span>1918.12.11</span>
+          <p>ZZZZZZZZ</p>
+        </div>
+      </li>
+    </ul>
   </section>
 </div>
