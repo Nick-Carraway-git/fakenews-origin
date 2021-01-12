@@ -1,5 +1,5 @@
 $(document).on('turbolinks:load', function() {
-  $('.slider').slick({
+  $('.slider').not('.slick-initialized').slick({
     autoplay: true,
     autoplaySpeed: 3500,
     dots: true,

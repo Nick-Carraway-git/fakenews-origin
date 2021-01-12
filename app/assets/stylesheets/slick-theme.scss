@@ -148,7 +148,7 @@ $slick-opacity-not-active: 0.25 !default;
         display: inline-block;
         height: 20px;
         width: 20px;
-        margin: 0 5px;
+        margin: -10px 5px;
         padding: 0;
         cursor: pointer;
         button {
@@ -180,8 +180,9 @@ $slick-opacity-not-active: 0.25 !default;
                 font-size: $slick-dot-size;
                 line-height: 20px;
                 text-align: center;
-                color: $slick-dot-color;
-                opacity: $slick-opacity-not-active;
+                // color: $slick-dot-color;
+                // opacity: $slick-opacity-not-active;
+                opacity: 0.8;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
             }
@@ -190,5 +191,14 @@ $slick-opacity-not-active: 0.25 !default;
             color: $slick-dot-color-active;
             opacity: $slick-opacity-default;
         }
+    }
+}
+
+.slick-dots {
+    li:nth-child(2n+1) button:before {
+      color: #223a70;
+    }
+    li:nth-child(2n+2) button:before {
+      color: #ffea00;
     }
 }

@@ -1,3 +1,8 @@
+<!-- slickの二重描画防止のためキャッシュを止める -->
+<% content_for :head do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
 <div class="previews">
   <h2 class="slider-heading">注目のニュース</h2>
   <ul class="slider">
