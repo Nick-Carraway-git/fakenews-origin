@@ -94,6 +94,7 @@ body {
   background-size: cover;
   padding-top: 180px;
   padding-bottom: 180px;
+  margin-bottom: 170px;
 }
 
 @media screen and (max-width: 700px) {
@@ -105,7 +106,7 @@ body {
     background-size: cover;
     padding-top: 160px;
     padding-bottom: 160px;
-    margin-bottom: -30px;
+    margin-bottom: 80px;
   }
 
   .top-heading {
@@ -114,7 +115,33 @@ body {
   }
 
   .top-heading span {
-    font-size: 24px;
+    font-size: 28px;
+  }
+}
+
+.top-heading-button a {
+  display: inline-block;
+  font-size: 20px;
+  margin: 0 5px;
+  color: #ffdc00;
+  background-color: #080808;
+  border: 1px solid #ffdc00;
+  padding: 0.5em 1.2em;
+  border-radius: 100px;
+  text-decoration: none;
+}
+
+.top-heading-button a:hover {
+  background-color: rgba(8,8,8,0.8);
+}
+
+@media screen and (max-width: 700px) {
+  .top-heading-button {
+    margin-top: -20px;
+  }
+
+  .top-heading-button a {
+    font-size: 14px;
   }
 }
 
@@ -159,6 +186,39 @@ body {
   color: #f3f3f3;
 }
 
+/* topics */
+.topics {
+  margin-top: 150px;
+}
+
+@media screen and (max-width: 800px) {
+  .topics {
+    margin-top: 100px;
+  }
+}
+
+.topics section::before {
+  content: "";
+  display: inline-block;
+  border-top: solid 1px silver;
+  width: 100%;
+  height: 1px;
+  padding: 20px 0 0;
+}
+
+.topics-heading {
+  position: relative;
+}
+
+.topics-heading h4 {
+  margin-left: 12px;
+  position: absolute;
+  top: -43px;
+}
+
+.ranking-info {
+  border-right: 1px solid silver;
+}
 /* index (foundational)*/
 .guide {
   margin-top: 100px;
