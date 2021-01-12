@@ -1,0 +1,34 @@
+<div class="menu-tab-box">
+  <ul class="nav nav-tabs nav-justified">
+    <li class="nav-item menu-tab">
+      <% if @title == 'Recieved' %>
+        <%= link_to recieved_user_path(current_user), class: 'nav-link active' do %>
+          <span>受信トレイ</span>
+        <% end %>
+      <% else %>
+        <%= link_to recieved_user_path(current_user), class: 'nav-link' do %>
+          <span>受信トレイ<span>
+        <% end %>
+      <% end %>
+    </li>
+    <li class="nav-item menu-tab">
+      <% if @title == 'Sended' %>
+        <%= link_to sended_user_path(current_user), class: 'nav-link active' do %>
+          <span>送信済みトレイ</span>
+        <% end %>
+      <% else %>
+        <%= link_to sended_user_path(current_user), class: 'nav-link' do %>
+          <span>送信済みトレイ</span>
+        <% end %>
+      <% end %>
+    </li>
+  </ul>
+</div>
+
+<div class="minimails-box">
+  <% if @minimails.any? %>
+    <div class="minimails">
+      <%= render partial: 'minimails/minimail', collection: @minimails, as: :minimail %>
+    </div>
+  <% end %>
+</div>

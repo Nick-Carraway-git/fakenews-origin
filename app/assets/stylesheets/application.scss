@@ -290,6 +290,13 @@ footer {
   color: black;
 }
 
+.fa-paper-plane {
+  font-size: 0.5em;
+  vertical-align: 5%;
+  margin-left: 1px;
+  color: black;
+}
+
 .introduce {
   margin: 15px 0;
   word-wrap: break-word;
@@ -309,7 +316,7 @@ footer {
 .user-boards-heading {
   width: 100%;
   text-align: center;
-  margin: 10px 0 20px;
+  margin: 1px 0 20px;
 }
 
 @media screen and (max-width: 600px) {
@@ -660,4 +667,48 @@ footer {
 
 .bottom-button:hover {
   color:#4c6cb3;
+}
+
+/* mails */
+.minimails-box {
+
+}
+
+.mail-outline {
+  margin-top: 10px;
+}
+
+.mail-avator {
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid silver;
+  max-width: 40px;
+}
+
+.mail-title {
+  display: block;
+  color: #080808;
+  background-color: #f3f3f3;
+  padding: 8px 15px;
+  border-radius: 3px;
+}
+
+.checked-mail-title {
+  display: block;
+  color: #080808;
+  background-color: #f2f5f5;
+  padding: 8px 15px;
+  border-radius: 3px;
+}
+
+.mail-title:hover {
+  text-decoration: none;
+  color: #080808;
+  opacity: 0.8;
+}
+
+.checked-mail-title:hover {
+  text-decoration: none;
+  color: #080808;
+  opacity: 0.8;
 }

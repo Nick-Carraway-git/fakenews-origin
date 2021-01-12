@@ -27,21 +27,21 @@
                 <% end %>
               </li>
               <li class="nav-item">
-                <%= link_to user_path(current_user), class: 'nav-link hot' do %>
+                <%= link_to user_path(current_user), class: 'nav-link' do %>
                   <i class="fas fa-user header-icon"></i>
                 <% end %>
               </li>
               <li class="nav-item">
-                <%#= link_to favorites_path, class: 'nav-link hot' do %>
-                  <i class="fas fa-heart header-icon"></i>
-                <%# end %>
+                <%= link_to recieved_user_path(current_user), class: 'nav-link' do %>
+                  <i class="far fa-envelope header-icon"></i>
+                <% end %>
               </li>
               <li class="nav-item">
                 <%#= link_to notifications_path, class: 'nav-link activity' do %>
                   <%# if unchecked_notifications.any? %>
-                    <i class="fa fa-circle" style="color: gold;"></i>
+                    <!-- <i class="fa fa-circle" style="color: gold;"></i> -->
                   <%# end %>
-                  <i class="fas fa-paper-plane header-icon"></i>
+                  <!-- <i class="fas fa-paper-plane header-icon"></i> -->
                 <%# end %>
               </li>
               <li class="nav-item dropdown">

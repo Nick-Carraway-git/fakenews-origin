@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:following, :followers, :favoring, :sended, :recieved]
+  before_action :mail_checker, only: [:sended, :recieved]
+
   def show
     @user = User.find_by(id: params[:id])
     return redirect_to request.referrer || root_url if @user.blank?
@@ -26,4 +29,24 @@ class UsersController < ApplicationController
     @articles = @user.favoring
     render 'articles/show_favorite'
   end
+
+  def sended
+    @title = "Sended"
+    @minimails = current_user.send_minimails
+    render 'minimails/index_minimails'
+  end
+
+  def recieved
+    @title = "Recieved"
+    @user  = User.find(params[:id])
+    @minimails = current_user.recieve_minimails
+    render 'minimails/index_minimails'
+  end
+
+  private
+
+    def mail_checker
+      check = current_user.id.equal?(params[:id].to_i)
+      redirect_to root_url if check == false
+    end
 end

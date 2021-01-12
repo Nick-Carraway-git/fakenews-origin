@@ -1,0 +1,22 @@
+<div class="row mail-outline">
+  <div class="col-2 offset-1">
+    <% if minimail.sender.image.attached? %>
+      <%= link_to user_path(minimail.sender) do %>
+        <%= image_tag minimail.sender.image.variant(combine_options:{resize:"200x200^",crop:"200x200+0+0",gravity: :center}).processed, class: "mail-avator img-fluid" %>
+      <% end %>
+    <% else %>
+      <%= link_to user_path(minimail.sender) do %>
+        <%= image_tag 'default.jpg', class: "mail-avator img-fluid" %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-8">
+    <% if minimail.checked && minimail.reciever_id == current_user.id %>
+      <%= link_to minimail.title, minimail_path(minimail), class: 'checked-mail-title' %>
+    <% else %>
+      <%= link_to minimail.title, minimail_path(minimail), class: 'mail-title' %>
+    <% end %>
+  </div>
+</div>
+
+<hr/>

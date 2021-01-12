@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   resources :relationships,       only: [:create, :destroy]
   resources :boardrooms,          only: [:show, :create]
   resources :favorites,           only: [:create, :destroy]
-  resources :minimails,           only: [:index, :show, :new, :create, :destroy]
+  resources :minimails,           only: [:show, :new, :create, :destroy]
 
   resources :users do
     member do
       get :following, :followers
       get :favoring
+      get :recieved, :sended
     end
   end
 
