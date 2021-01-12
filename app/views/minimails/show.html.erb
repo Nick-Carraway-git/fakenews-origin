@@ -1,2 +1,15 @@
-<p><%= @minimail.title %></p>
-<p><%= @minimail.content %></p>
+<div class="mail-shower">
+  <h4><%= @minimail.title %></h4>
+  <div class="">
+    <span>from <%= @minimail.sender.name %></span>
+    <%= link_to new_minimail_path(reciever_id: @minimail.sender.id), class: 'profile-edit-button' do %>
+      <i class="fas fa-reply" style="float:right;"></i>
+    <% end %>
+  </div>
+
+  <hr/>
+
+  <div class="">
+    <p><%= @minimail.content %></p>
+  </div>
+</div>

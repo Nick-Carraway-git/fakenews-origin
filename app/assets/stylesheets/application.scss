@@ -689,7 +689,7 @@ footer {
 .mail-title {
   display: block;
   color: #080808;
-  background-color: #f3f3f3;
+  background-color: #fff;
   padding: 8px 15px;
   border-radius: 3px;
 }
@@ -712,4 +712,9 @@ footer {
   text-decoration: none;
   color: #080808;
   opacity: 0.8;
+}
+
+/* mails(show) */
+.mail-shower {
+  margin-top: 90px;
 }
