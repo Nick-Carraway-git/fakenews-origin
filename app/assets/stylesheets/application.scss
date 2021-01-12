@@ -542,8 +542,8 @@ footer {
   //width: 100%;
   border-radius: 50%;
   border: 2px solid silver;
-  max-width: 65px;
-  margin: 0 5px 10px;
+  max-width: 60px;
+  margin: 0 0 10px 0;
 }
 
 .follow-heading {
@@ -556,17 +556,17 @@ footer {
   }
 }
 
-.follow-member-box {
-  margin: 27px auto;
-}
-
 .follow-member-outline {
   margin-top: 20px;
   //margin: 20px auto 0;
 }
 
 .follow-member-info {
+  text-align: center;
+}
 
+.follow-member-info a {
+  color: #080808;
 }
 
 /* mordal */

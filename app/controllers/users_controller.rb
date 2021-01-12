@@ -27,7 +27,7 @@ class UsersController < ApplicationController
     @title = "Favorite Articles"
     @user  = User.find(params[:id])
     @articles = @user.favoring
-    render 'articles/show_favorite'
+    render 'show_favorite'
   end
 
   def sended

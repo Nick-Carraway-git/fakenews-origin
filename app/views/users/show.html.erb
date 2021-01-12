@@ -37,44 +37,44 @@
   <ul class="nav nav-tabs nav-justified">
     <li class="nav-item menu-tab">
       <% if @title.blank? %>
-        <%= link_to user_path(current_user), class: 'nav-link active' do %>
+        <%= link_to user_path(@user), class: 'nav-link active' do %>
           <span>メインメニュー</span>
         <% end %>
       <% else %>
-        <%= link_to user_path(current_user), class: 'nav-link' do %>
+        <%= link_to user_path(@user), class: 'nav-link' do %>
           <span>メインメニュー</span>
         <% end %>
       <% end %>
     </li>
     <li class="nav-item menu-tab">
       <% if @title == 'Following' %>
-        <%= link_to following_user_path(current_user), class: 'nav-link active' do %>
+        <%= link_to following_user_path(@user), class: 'nav-link active' do %>
           <span>フォロー中</span>
         <% end %>
       <% else %>
-        <%= link_to following_user_path(current_user), class: 'nav-link' do %>
+        <%= link_to following_user_path(@user), class: 'nav-link' do %>
           <span>フォロー中<span>
         <% end %>
       <% end %>
     </li>
     <li class="nav-item menu-tab">
       <% if @title == 'Followers' %>
-        <%= link_to followers_user_path(current_user), class: 'nav-link active' do %>
+        <%= link_to followers_user_path(@user), class: 'nav-link active' do %>
           <span>フォロワー</span>
         <% end %>
       <% else %>
-        <%= link_to followers_user_path(current_user), class: 'nav-link' do %>
+        <%= link_to followers_user_path(@user), class: 'nav-link' do %>
           <span>フォロワー</span>
         <% end %>
       <% end %>
     </li>
     <li class="nav-item menu-tab">
       <% if @title == 'Favorite Articles' %>
-        <%= link_to favoring_user_path(current_user), class: 'nav-link active' do %>
+        <%= link_to favoring_user_path(@user), class: 'nav-link active' do %>
           <span>お気に入り</span>
         <% end %>
       <% else %>
-        <%= link_to favoring_user_path(current_user), class: 'nav-link' do %>
+        <%= link_to favoring_user_path(@user), class: 'nav-link' do %>
           <span>お気に入り</span>
         <% end %>
       <% end %>

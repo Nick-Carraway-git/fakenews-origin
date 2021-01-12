@@ -1,5 +1,5 @@
-<div class="row col-12 col-md-4 follow-member-outline">
-  <div class="col-4 follow-member-info">
+<div class="row col-12 col-md-4 follow-member-outline no-gutters">
+  <div class="col-3 follow-member-info">
     <% if user.image.attached? %>
       <%= link_to user_path(user) do %>
         <%= image_tag user.image.variant(combine_options:{resize:"200x200^",crop:"200x200+0+0",gravity: :center}).processed, class: "small-avator img-fluid" %>
@@ -10,8 +10,10 @@
       <% end %>
     <% end %>
   </div>
-  <div class="col-8 follow-member-info">
-    <p><%= user.name %></p>
-    <p><%= user.articles.count %>articles</p>
+  <div class="col-9 follow-member-info">
+    <%= link_to user_path(user) do %>
+      <p><%= user.name %></p>
+    <% end %>
+    <p><%= user.articles.count %> articles</p>
   </div>
 </div>

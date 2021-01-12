@@ -15,6 +15,10 @@
           <%= link_to edit_user_registration_path, class: 'profile-edit-button' do %>
             <i class="fas fa-pen"></i>
           <% end %>
+        <% else %>
+          <%= link_to new_minimail_path(reciever_id: @user.id), class: 'profile-edit-button' do %>
+            <i class="fas fa-paper-plane"></i>
+          <% end %>
         <% end %>
         <%= render 'follow_form' %>
       </h3>
@@ -33,44 +37,44 @@
   <ul class="nav nav-tabs nav-justified">
     <li class="nav-item menu-tab">
       <% if @title.blank? %>
-        <%= link_to user_path(current_user), class: 'nav-link active' do %>
+        <%= link_to user_path(@user), class: 'nav-link active' do %>
           <span>メインメニュー</span>
         <% end %>
       <% else %>
-        <%= link_to user_path(current_user), class: 'nav-link' do %>
+        <%= link_to user_path(@user), class: 'nav-link' do %>
           <span>メインメニュー</span>
         <% end %>
       <% end %>
     </li>
     <li class="nav-item menu-tab">
       <% if @title == 'Following' %>
-        <%= link_to following_user_path(current_user), class: 'nav-link active' do %>
+        <%= link_to following_user_path(@user), class: 'nav-link active' do %>
           <span>フォロー中</span>
         <% end %>
       <% else %>
-        <%= link_to following_user_path(current_user), class: 'nav-link' do %>
+        <%= link_to following_user_path(@user), class: 'nav-link' do %>
           <span>フォロー中<span>
         <% end %>
       <% end %>
     </li>
     <li class="nav-item menu-tab">
       <% if @title == 'Followers' %>
-        <%= link_to followers_user_path(current_user), class: 'nav-link active' do %>
+        <%= link_to followers_user_path(@user), class: 'nav-link active' do %>
           <span>フォロワー</span>
         <% end %>
       <% else %>
-        <%= link_to followers_user_path(current_user), class: 'nav-link' do %>
+        <%= link_to followers_user_path(@user), class: 'nav-link' do %>
           <span>フォロワー</span>
         <% end %>
       <% end %>
     </li>
     <li class="nav-item menu-tab">
       <% if @title == 'Favorite Articles' %>
-        <%= link_to favoring_user_path(current_user), class: 'nav-link active' do %>
+        <%= link_to favoring_user_path(@user), class: 'nav-link active' do %>
           <span>お気に入り</span>
         <% end %>
       <% else %>
-        <%= link_to favoring_user_path(current_user), class: 'nav-link' do %>
+        <%= link_to favoring_user_path(@user), class: 'nav-link' do %>
           <span>お気に入り</span>
         <% end %>
       <% end %>
@@ -83,7 +87,7 @@
   <div class="row">
     <div class="col-12">
       <h5 class="user-articles-heading"><%= @title %></h5>
-      <% if @user.articles.any? %>
+      <% if @articles.any? %>
         <div class="row">
           <% @articles.each do |article| %>
             <button type="button" class="modal-button col-4" style="display:inline-block;" data-toggle="modal" data-target="#mordal-<%= article.id %>">
