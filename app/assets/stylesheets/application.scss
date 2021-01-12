@@ -716,5 +716,24 @@ footer {
 
 /* mails(show) */
 .mail-shower {
-  margin-top: 90px;
+  margin-top: 10px;
+  border-left: 1px solid #223a70;
+}
+
+@media screen and (max-width: 600px){
+  .mail-shower {
+    margin-top: 10px;
+    border: none;
+  }
+}
+
+.fa-reply {
+  font-size: 1.1em;
+  vertical-align: -6%;
+  float: right;
+  color: black;
+}
+
+.mail-content {
+  opacity: 0.7;
 }
