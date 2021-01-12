@@ -1,4 +1,4 @@
-<div class="row mail-outline">
+<div class="row mail-outline no-gutters">
   <div class="col-2 offset-1">
     <% if minimail.sender.image.attached? %>
       <%= link_to user_path(minimail.sender) do %>
@@ -10,7 +10,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="col-8">
+  <div class="col-9">
     <% if minimail.checked && minimail.reciever_id == current_user.id %>
       <%= link_to minimail.title, minimail_path(minimail), class: 'checked-mail-title' %>
     <% else %>
@@ -18,5 +18,3 @@
     <% end %>
   </div>
 </div>
-
-<hr/>
