@@ -22,7 +22,12 @@
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <%= link_to new_article_path, class: 'nav-link article-icon' do %>
+                <%= link_to article_path(random_jump), class: 'nav-link' do %>
+                  <i class="fas fa-door-open header-icon"></i>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_article_path, class: 'nav-link' do %>
                   <i class="fas fa-feather-alt header-icon"></i>
                 <% end %>
               </li>
