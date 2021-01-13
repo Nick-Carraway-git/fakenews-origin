@@ -2,11 +2,11 @@
   <div class="col-2 offset-1">
     <% if chat.user.image.attached? %>
       <%= link_to user_path(chat.user) do %>
-        <%= image_tag chat.user.image.variant(combine_options:{resize:"200x200^",crop:"200x200+0+0",gravity: :center}).processed, class: "mail-avator img-fluid" %>
+        <%= image_tag chat.user.image.variant(combine_options:{resize:"200x200^",crop:"200x200+0+0",gravity: :center}).processed, class: "chat-avator img-fluid" %>
       <% end %>
     <% else %>
       <%= link_to user_path(chat.user) do %>
-        <%= image_tag 'default.jpg', class: "mail-avator img-fluid" %>
+        <%= image_tag 'default.jpg', class: "chat-avator img-fluid" %>
       <% end %>
     <% end %>
   </div>

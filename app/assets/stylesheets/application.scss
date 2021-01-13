@@ -886,6 +886,7 @@ footer {
 }
 
 .chat-heading h4 {
+  font-size: 18px;
   padding: 20px 0 5px;
   width: 100%;
 }
@@ -894,8 +895,16 @@ footer {
   width: 100%;
 }
 
+.chat-avator {
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid silver;
+  max-width: 40px;
+}
+
 .chat-room {
   max-height: 600px;
+  padding-bottom: 25px;
   overflow: scroll;
   background-color: #f0f0f0;
   border: 1px solid #bbb;
@@ -911,4 +920,17 @@ footer {
   padding-top: 10px;
   margin-top: 10px;
   border: 1px solid silver;
+}
+
+.live {
+  padding: 13px 0 0 3px;
+  font-size: 20px;
+  color: #e60033;
+}
+
+.live-chat-box {
+  background-color: #fff;
+  padding-top: 10px;
+  margin-top: 10px;
+  border: 1px solid #bbb;
 }
