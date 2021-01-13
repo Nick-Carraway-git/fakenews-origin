@@ -879,3 +879,18 @@ footer {
 .mail-content {
   opacity: 0.7;
 }
+
+.chat-heading {
+  background-color: blue;
+  padding-bottom: 50px;
+}
+
+.chat-room {
+  max-height: 700px;
+  overflow: scroll;
+  background-color: red;
+}
+
+.chat-content {
+  overflow: scroll;
+}

@@ -1,7 +1,12 @@
-<p><%= "ルーム名：#{@boardroom.id}" %></p>
+<div class="row">
+  <div class="col-12 offset-md-2 col-md-8 chat-heading">
+    <p><%= "#{@boardroom.article.title}#{@boardroom.id}" %></p>
+    <input type="text" data-behavior="boardroom_speaker" data-user="<%= current_user.id %>" data-boardroom="<%= @boardroom.id %>">
+  </div>
 
-<input type="text" data-behavior="boardroom_speaker" data-user="<%= current_user.id %>" data-boardroom="<%= @boardroom.id %>">
-
-<div id="chats">
-  <%= render "chats", collection: @chats %>
+  <div class="col-12 offset-md-2 col-md-8 chat-room">
+    <div id="chats" class="chat-content">
+      <%= render partial: "chat", collection: @chats %>
+    </div>
+  </div>
 </div>
