@@ -3,6 +3,12 @@
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
+  def guest_log_in
+    user = User.guest
+    sign_in user
+    redirect_to root_url
+  end
+
   # GET /resource/sign_in
   # def new
   #   super

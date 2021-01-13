@@ -22,8 +22,10 @@
 
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
-                <%= link_to article_path(random_jump), class: 'nav-link' do %>
-                  <i class="fas fa-door-open header-icon"></i>
+                <% if random_jump != 0 %>
+                  <%= link_to article_path(random_jump), class: 'nav-link' do %>
+                    <i class="fas fa-door-open header-icon"></i>
+                  <% end %>
                 <% end %>
               </li>
               <li class="nav-item">
@@ -86,7 +88,7 @@
       <span>"WOULD-BE FUNNIEST NEWS"</span>
       <div class="top-heading-button">
         <%= link_to 'サービス概要', aboutus_path %>
-        <%= link_to 'テストログイン', aboutus_path %>
+        <%= link_to 'ゲストログイン', users_guest_log_in_path, method: :post  %>
       </div>
     </div>
   </div>

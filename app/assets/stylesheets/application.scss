@@ -288,7 +288,19 @@ body {
   font-weight: 300;
 }
 
-/* index (foundational)*/
+/* aboutus(foundational) */
+.aboutus-heading {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 36px;
+}
+
+@media screen and (max-width: 800px){
+  .aboutus-heading {
+    font-size: 30px;
+  }
+}
+
 .guide {
   margin-top: 100px;
 }
@@ -703,7 +715,8 @@ footer {
 
 .article-body-box {
   margin: 35px;
-  text-align: center;
+  white-space: pre-wrap;
+  // text-align: center;
 }
 
 .article-background {

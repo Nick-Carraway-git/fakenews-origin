@@ -6,7 +6,7 @@ class Article < ApplicationRecord
   has_many :favorites, dependent: :destroy
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 70 }
-  validates :content, presence: true, length: { maximum: 140 }
+  validates :content, presence: true, length: { maximum: 4000 }
   validates :image,   content_type: { in: %w[image/jpeg image/gif image/png],
                                     message: "must be a valid image format" },
                     size:         { less_than: 3.megabytes,

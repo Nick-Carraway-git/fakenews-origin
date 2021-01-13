@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to article_path(@article)
     else
-      render root_url
+      redirect_to root_url
     end
   end
 

@@ -22,5 +22,8 @@ Rails.application.routes.draw do
   get '/help',                    to: 'foundational_pages#help'
   get '/terms',                   to: 'foundational_pages#terms'
   get '/aboutus',                 to: 'foundational_pages#aboutus'
+  devise_scope :user do
+    post 'users/guest_log_in', to: 'users/sessions#guest_log_in'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

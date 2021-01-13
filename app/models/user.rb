@@ -36,6 +36,12 @@ class User < ApplicationRecord
     end
   end
 
+  def self.guest
+    find_or_create_by!(name: 'Guest', username: 'GuestChan', email: 'guest_user@example.com', introduce: '私はゲストちゃんです。私は削除/編集できません。') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   # フォロー関係のメソッド
   # ユーザーをフォローする
   def follow(other_user)
