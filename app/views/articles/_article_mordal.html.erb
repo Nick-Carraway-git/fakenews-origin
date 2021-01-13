@@ -1,3 +1,7 @@
+<% content_for :head do %>
+  <meta name="turbolinks-cache-control" content="no-cache">
+<% end %>
+
 <div class="modal fade" id="mordal-<%= article.id %>" tabindex="-1" role="dialog" aria-labelledby="articlesMordalLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl" role="document"">
     <div class="modal-content article-modal-content">
@@ -11,19 +15,19 @@
       <div class="modal-body">
         <p class="modal-time text-muted"><%= " #{article.created_at.strftime('%Y/%m/%d %H:%M')}" %></p>
         <!-- mordal content -->
-        <%= link_to article_path(article), rocal: true, class: "article-link", target: :_blank do %>
+        <%= link_to article_path(article), rocal: true, class: "article-link" do %>
           <% if article.image.attached? %>
-            <%= link_to article_path(article), rocal: true, target: :_blank do %>
+            <%= link_to article_path(article), rocal: true do %>
               <%= image_tag article.image.variant(combine_options:{resize:"900x900^",crop:"900x900+0+0",gravity: :center}).processed, class: "thumbnail thumnail-modal" %>
             <% end %>
           <% end %>
         <% end %>
         <div class="article-modal-menu">
           <div class="article-modal-item">
-            <%= link_to '記事を読む', article_path(article), rocal: true, class: "article-link btn btn-read", target: :_blank %>
+            <%= link_to '記事を読む', article_path(article), rocal: true, class: "article-link btn btn-read" %>
           </div>
           <div class="article-modal-item">
-            <%= link_to '記事を編集', edit_article_path(article), rocal: true, class: "article-link btn btn-edit", target: :_blank %>
+            <%= link_to '記事を編集', edit_article_path(article), rocal: true, class: "article-link btn btn-edit" %>
           </div>
           <div class="article-modal-item">
             <%= link_to '記事を削除', article, class: "article-link btn btn-delete", method: :delete, data: { confirm: "本当によろしいですか?" } %>
