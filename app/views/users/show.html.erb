@@ -113,7 +113,7 @@
         <ul class="user-boards-list">
           <li class="user-boards-item">
             <%= link_to boardroom_path(board.id), class: "btn btn-read" do %>
-              <%= "#{board.article.title.slice(0..15)} #{board.id}" %>
+              <%= "#{board.article.title.slice(0..15)} Part.#{board.id}" %>
             <% end %>
           </li>
         </ul>
