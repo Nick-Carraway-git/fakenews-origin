@@ -1,6 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :correct_user,   only: :destroy
 
+  def index
+    @articles = Article.all
+  end
+
   def show
     @article = Article.find_by(id: params[:id])
     if user_signed_in?
