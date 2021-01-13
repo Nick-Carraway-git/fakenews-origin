@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-12 offset-md-2 col-md-8 chat-heading">
-    <p><%= "#{@boardroom.article.title}#{@boardroom.id}" %></p>
+    <h4><%= "#{@boardroom.article.title} Part.#{@boardroom.id}" %></h4>
     <input type="text" data-behavior="boardroom_speaker" data-user="<%= current_user.id %>" data-boardroom="<%= @boardroom.id %>">
   </div>
 
