@@ -1,5 +1,5 @@
 <div class="navbar-nav ml-auto" id="search-window">
-  <%= form_with(url: results_path, method: :get, local: true, class: "form-inline") do |f| %>
+  <%= form_with(url: results_path, method: :get, local: true) do |f| %>
     <%= f.label :category %>
     <%= f.radio_button :category, 1 %>スポーツ
     <%= f.radio_button :category, 2 %>政治
@@ -8,6 +8,7 @@
     <%= f.radio_button :category, 5 %>エンタメ
     <%= f.radio_button :category, 6 %>犯罪
     <%= f.radio_button :category, 7 %>医療
+    <%= f.text_field :search, class: "form-control search-box", size: 25 %>
     <%= f.submit "Post", class: "btn btn-primary" %>
   <% end %>
  </div>

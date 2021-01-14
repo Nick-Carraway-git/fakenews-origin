@@ -22,7 +22,9 @@ class FoundationalPagesController < ApplicationController
   end
 
   def results
-    category = Category.find_by(id: params[:category])
-    @resultArticles = category.articles
+    category = Category.where(id: params[:category])
+    # 1件のActive Recordを配列化 -> 取り出し
+    @categoryArticles = (category.to_a.first).articles if !(category.empty?)
+    @searchArticles = Article.where('title like ?', "%#{params[:search]}%")
   end
 end
