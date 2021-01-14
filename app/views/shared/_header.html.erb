@@ -9,17 +9,6 @@
 
   		<div class="collapse navbar-collapse" id="header-content">
         <% if user_signed_in? %>
-          <!--
-  			   <div class="navbar-nav ml-auto" id="search-window">
-              <%#= form_with(url: results_path, method: :get, local: true, class: "form-inline") do |f| %>
-                <%#= f.text_field :search, class: "form-control search-box", size: 25 %>
-                <%#= f.button type: "submit", name: nil,　class: "form-control search-bottun" do %>
-                  <i class="fas fa-search"></i>
-                <%# end %>
-              <%# end %>
-            </div>
-          -->
-
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <%= link_to articles_path, class: 'nav-link' do %>
@@ -31,13 +20,13 @@
                   <i class="fas fa-search header-icon"></i>
                 <% end %>
               </li>
-              <li class="nav-item">
-                <% if random_jump != 0 %>
-                  <%= link_to article_path(random_jump), class: 'nav-link' do %>
+              <!-- <li class="nav-item">
+                <%# if random_jump != 0 %>
+                  <%#= link_to article_path(random_jump), class: 'nav-link' do %>
                     <i class="fas fa-door-open header-icon"></i>
-                  <% end %>
-                <% end %>
-              </li>
+                  <%# end %>
+                <%# end %>
+              </li> -->
               <li class="nav-item">
                 <%= link_to new_article_path, class: 'nav-link' do %>
                   <i class="fas fa-feather-alt header-icon"></i>
@@ -53,17 +42,8 @@
                   <i class="far fa-envelope header-icon"></i>
                 <% end %>
               </li>
-              <li class="nav-item">
-                <%#= link_to notifications_path, class: 'nav-link activity' do %>
-                  <%# if unchecked_notifications.any? %>
-                    <!-- <i class="fa fa-circle" style="color: gold;"></i> -->
-                  <%# end %>
-                  <!-- <i class="fas fa-paper-plane header-icon"></i> -->
-                <%# end %>
-              </li>
               <li class="nav-item dropdown">
     				    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <!-- <i class="fas fa-user"></i> -->
                   <% if current_user.image.attached? %>
                     <%= image_tag current_user.image.variant(combine_options:{resize:"600x600^",crop:"600x600+0+0",gravity: :center}).processed, class: "header-avator" %>
                   <% else %>
@@ -77,7 +57,6 @@
                   <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
     				    </div>
     			     </li>
-
         <% else %>
           <ul class="navbar-nav ml-auto">
             <li class="nav-item header-item">
@@ -91,15 +70,15 @@
   		</div>
     </div>
   </nav>
-</header>
-<% if current_page?(root_url) %>
-  <div class="bgimage">
-    <div class="top-heading">
-      <span>"WOULD-BE FUNNIEST NEWS"</span>
-      <div class="top-heading-button">
-        <%= link_to 'サービス概要', aboutus_path %>
-        <%= link_to 'ゲストログイン', users_guest_log_in_path, method: :post  %>
+  <% if current_page?(root_url) %>
+    <div class="bgimage">
+      <div class="top-heading">
+        <span>"WOULD-BE FUNNIEST NEWS"</span>
+        <div class="top-heading-button">
+          <%= link_to 'サービス概要', aboutus_path %>
+          <%= link_to 'ゲストログイン', users_guest_log_in_path, method: :post  %>
+        </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</header>
