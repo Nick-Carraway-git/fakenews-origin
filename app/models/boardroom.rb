@@ -4,4 +4,7 @@ class Boardroom < ApplicationRecord
   has_many :user_boardrooms
   has_many :users, through: :user_boardrooms
   has_many :chats
+
+  # nameは不要
+  validates :article_id, presence: true
 end
