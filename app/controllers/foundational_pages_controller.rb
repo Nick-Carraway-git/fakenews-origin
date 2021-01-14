@@ -17,4 +17,12 @@ class FoundationalPagesController < ApplicationController
 
   def aboutus
   end
+
+  def search
+  end
+
+  def results
+    category = Category.find_by(id: params[:category])
+    @resultArticles = category.articles
+  end
 end

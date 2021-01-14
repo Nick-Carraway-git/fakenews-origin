@@ -1,0 +1,18 @@
+<div class="row">
+  <% @resultArticles.each do |article| %>
+    <div class="col-6">
+      <div class="index-heading-box">
+        <% article.categories.each do |category| %>
+          <div class="index-category-tag"><%= category.name %></div>
+        <% end %>
+        <h2 class="title-decoration"><%= "#{article.title}" %></h2>
+        <p class="time-decoration text-muted"><%= " #{article.created_at.strftime('%Y/%m/%d %H:%M')}" %></p>
+        <div class="picture-decoration-box">
+          <%= link_to article_path(article) do %>
+            <%= image_tag article.image.variant(combine_options:{resize:"500x400^",crop:"500x400+0+0",gravity: :center}).processed, class: 'picture-decoration' %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

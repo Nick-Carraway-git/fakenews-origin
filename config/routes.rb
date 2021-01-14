@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get '/help',                    to: 'foundational_pages#help'
   get '/terms',                   to: 'foundational_pages#terms'
   get '/aboutus',                 to: 'foundational_pages#aboutus'
+  get '/search',                  to: 'foundational_pages#search'
+  get '/results',                 to: 'foundational_pages#results'
   devise_scope :user do
     post 'users/guest_log_in', to: 'users/sessions#guest_log_in'
   end
