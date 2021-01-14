@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
   before_action :correct_user,   only: :destroy
 
   def index

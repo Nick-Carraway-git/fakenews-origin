@@ -1,4 +1,6 @@
 class BoardroomsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @boardroom = Boardroom.find(params[:id])
     @chats = @boardroom.chats

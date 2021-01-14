@@ -1,4 +1,6 @@
 class MinimailsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @recievedMail = Minimail.where(reciever_id: current_user.id)
     @sendedMail = Minimail.where(sender_id: current_user.id)
@@ -8,7 +10,7 @@ class MinimailsController < ApplicationController
     @minimail = Minimail.find_by(id: params[:id])
     if @minimail.reciever_id == current_user.id
       @minimail.update_attributes(checked: true)
-    end  
+    end
   end
 
   def new
