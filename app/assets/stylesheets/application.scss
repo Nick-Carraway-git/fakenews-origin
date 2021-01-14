@@ -291,14 +291,47 @@ body {
 /* aboutus(foundational) */
 .aboutus-heading {
   text-align: center;
+  font-family: 'Courgette', cursive !important;
   padding-top: 50px;
-  font-size: 36px;
+  font-size: 44px;
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 765px){
   .aboutus-heading {
-    font-size: 30px;
+    font-size: 36px;
   }
+  .servise-guide-heading {
+    font-size: 28px;
+    padding-bottom: 15px;
+  }
+  .system-guide-heading {
+    font-size: 28px;
+    padding-bottom: 15px;
+  }
+  .resistration-guide-heading {
+    font-size: 28px;
+    padding-bottom: 15px;
+  }
+  .lead {
+    font-size: 18px;
+    color: #4f595d;
+  }
+}
+
+@media screen and (min-width: 766px){
+  .servise-guide-heading {
+    padding-bottom: 28px;
+  }
+  .system-guide-heading {
+    padding-bottom: 28px;
+  }
+  .resistration-guide-heading {
+    padding-bottom: 28px;
+  }
+}
+
+.lead {
+  margin-bottom: 0.5em;
 }
 
 .guide {
@@ -322,9 +355,9 @@ body {
   margin-bottom: 200px;
 }
 
-@media screen and (max-width: 765px) {
-  .resistration-guide-heading {
-    font-size: 24px;
+@media screen and (min-width: 1200px) {
+  .resistration-guide {
+    margin-top: -100px;
   }
 }
 
