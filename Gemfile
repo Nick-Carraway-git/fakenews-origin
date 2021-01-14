@@ -52,8 +52,9 @@ gem "omniauth-rails_csrf_protection"
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 
-# font-awesome
+# design
 gem 'font-awesome-sass'
+gem 'kaminari'
 
 # Active Storage
 gem 'active_storage_validations'

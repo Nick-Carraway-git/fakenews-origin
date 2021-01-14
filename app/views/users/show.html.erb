@@ -108,19 +108,8 @@
     </div>
     <div class="col-12 col-md-4">
       <h5 class="user-boards-heading">My Borads</h5>
-      <% if @user.boardrooms.any? %>
-        <% @boards.each do |board| %>
-        <ul class="user-boards-list">
-          <li class="user-boards-item">
-            <%= link_to boardroom_path(board.id), class: "btn btn-read" do %>
-              <%= "#{board.article.title.slice(0..15)} Part.#{board.id}" %>
-            <% end %>
-          </li>
-        </ul>
-        <% end %>
-      <% else %>
-        <h5 class="not-found-message">Boards are not found.</h5>
-      <% end %>
+      <div id="boards_list"><%= render 'boards_list' %></div>
+      <div class="more"><%= link_to_next_page @boards, 'もっと見る', remote: true, id: 'view_more' %></div>
     </div>
   </div>
 </div>
