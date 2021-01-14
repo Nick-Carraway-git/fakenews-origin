@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to article_path(@article)
     else
-      redirect_to root_url
+      redirect_to new_article_path
     end
   end
 
