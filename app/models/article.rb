@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   has_many :boardrooms
   has_many :favorites, dependent: :destroy
   validates :user_id, presence: true
-  validates :title, presence: true, length: { maximum: 70 }
+  validates :title, presence: true, uniqueness: true, length: { maximum: 70 }
   validates :content, presence: true, length: { maximum: 4000 }
   validates :image_description, presence: true, length: { maximum: 70 }
   validates :image,   content_type: { in: %w[image/jpeg image/png],
