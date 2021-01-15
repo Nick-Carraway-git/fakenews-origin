@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def index
-    @articles = Article.all
+    @articles = Article.all.page(params[:page]).per(8)
   end
 
   def show

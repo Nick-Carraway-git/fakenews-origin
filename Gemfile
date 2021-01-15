@@ -55,6 +55,7 @@ gem 'jquery-rails'
 # design
 gem 'font-awesome-sass'
 gem 'kaminari'
+gem 'bootstrap4-kaminari-views'
 
 # Active Storage
 gem 'active_storage_validations'

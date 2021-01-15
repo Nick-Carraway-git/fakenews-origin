@@ -24,7 +24,7 @@ class FoundationalPagesController < ApplicationController
   def results
     category = Category.where(id: params[:category])
     # 1件のActive Recordを配列化 -> 取り出し
-    @categoryArticles = (category.to_a.first).articles if !(category.empty?)
-    @searchArticles = Article.where('title like ?', "%#{params[:search]}%")
+    @categoryArticles = (category.to_a.first).articles.page(params[:page]).per(8) if !(category.empty?)
+    @searchArticles = Article.where('title like ?', "%#{params[:search]}%").page(params[:page]).per(8)
   end
 end

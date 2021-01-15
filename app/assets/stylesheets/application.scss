@@ -438,6 +438,21 @@ body {
   transform: rotate(-20deg) translate(140px, 70px);
 }
 
+/* pagination */
+.article-paginate {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.pagination a {
+  color: #223a70;
+}
+
+.pagination>.active>a {
+  color: #fff;
+  background: #223a70 !important;
+}
+
 /* footer */
 footer {
   display: block;

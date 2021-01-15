@@ -16,6 +16,7 @@
         </div>
       </div>
     <% end %>
+    <div class="article-paginate col-12"><%= paginate @categoryArticles, theme: 'twitter-bootstrap-4' %></div>
   <% else %>
     <% if @searchArticles %>
       <% @searchArticles.each do |article| %>
@@ -35,5 +36,6 @@
         </div>
       <% end %>
     <% end %>
+    <div class="article-paginate col-12"><%= paginate @searchArticles, theme: 'twitter-bootstrap-4' %></div>
   <% end %>
 </div>
