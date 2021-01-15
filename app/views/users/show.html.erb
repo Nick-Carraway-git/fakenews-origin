@@ -87,29 +87,13 @@
   <div class="row">
     <div class="col-12 col-md-8">
       <h5 class="user-articles-heading">My Articles</h5>
-      <% if @user.articles.any? %>
-        <div class="row">
-          <% @articles.each do |article| %>
-            <button type="button" class="modal-button col-6" style="display:inline-block;" data-toggle="modal" data-target="#mordal-<%= article.id %>">
-              <%= image_tag article.image.variant(combine_options:{resize:"900x900^",crop:"900x900+0+0",gravity: :center}).processed, class: "thumbnail img-thumbnail" %>
-              <div class="mask">
-            		<div class="caption"><%= article.title %></div>
-            	</div>
-            </button>
-            <% @mordal_article = article %>
-            <ol class="articles">
-              <%= render 'articles/article_mordal', article: @mordal_article %>
-            </ol>
-          <% end %>
-        </div>
-      <% else %>
-        <h5 class="not-found-message">Articles are not found.</h5>
-      <% end %>
+      <div id="articles_list"><%= render 'articles_list' %></div>
+      <div class="more"><%= link_to_next_page @articles, 'もっと見る', remote: true, id: 'view_more_a', :param_name => 'articles_page' %></div>
     </div>
     <div class="col-12 col-md-4">
       <h5 class="user-boards-heading">My Borads</h5>
       <div id="boards_list"><%= render 'boards_list' %></div>
-      <div class="more"><%= link_to_next_page @boards, 'もっと見る', remote: true, id: 'view_more' %></div>
+      <div class="more"><%= link_to_next_page @boards, 'もっと見る', remote: true, id: 'view_more_b', :param_name => 'boards_page' %></div>
     </div>
   </div>
 </div>
