@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :article do
-    title { "MyText" }
+    sequence(:title) { |n| "Title#{n}"}
     content { "MyText" }
     user { create(:user) }
     image_description { "AAA" }
