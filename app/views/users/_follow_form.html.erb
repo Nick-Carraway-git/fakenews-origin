@@ -1,4 +1,4 @@
-<% unless current_user == @user %>
+<% unless current_user.eql?(@user) || current_user.eql?(nil) %>
   <div id="follow_form" class="follow-button">
   <% if current_user.following?(@user) %>
     <%= render 'unfollow' %>
