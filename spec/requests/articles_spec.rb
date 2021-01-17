@@ -118,7 +118,7 @@ RSpec.describe "Articles", type: :request do
 #  end
 
 #  describe "記事削除(articles/destroy)のテスト" do
-#    let!(:article3) { create(:article, user_id: user.id) }
+#    let(:article3) { create(:article) }
 #
 #    context "ログインしていない場合" do
 #      before do
