@@ -5,7 +5,7 @@ RSpec.describe "Users", type: :request do
 
   describe "ユーザー個別ページ(users/show)のテスト" do
     before do
-      get user_path(user1.id)
+      get user_path(user.id)
     end
 
     it "リクエストの成功" do
