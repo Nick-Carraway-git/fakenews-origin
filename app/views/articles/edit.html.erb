@@ -1,0 +1,13 @@
+<h4>記事の編集</h4>
+<%= form_with(model: @article, local: true) do |f| %>
+  <div class="article-new-field">
+    <%= f.text_field :title, class: 'title-box', placeholder: @article.title %>
+  </div>
+  <div class="article-new-field">
+    <%= f.text_area :content, class: 'content-box', placeholder: @article.content, rows: 15 %>
+  </div>
+  <div class="article-new-field">
+    <%= f.text_field :image_description, class: 'image_description-box', placeholder: @article.image_description %>
+  </div>
+  <%= f.submit "Edit", class: "btn btn-primary" %>
+<% end %>

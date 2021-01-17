@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
-  before_action :correct_user,   only: :destroy
+  before_action :authenticate_user!, only: [:new, :edit, :create, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.all.page(params[:page]).per(8)
@@ -21,6 +21,16 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+  end
+
+  def edit
+    @article = Article.find_by(id: params[:id])
+  end
+
+  def update
+    @article = Article.find_by(id: params[:id])
+    @article.update(article_params)
+    redirect_to article_path(@article)
   end
 
   def create
