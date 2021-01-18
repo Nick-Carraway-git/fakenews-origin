@@ -40,21 +40,22 @@ RSpec.describe 'Articles', type: :system do
     end
 
     it "ページ内UIの確認" do
-      # ボード作成の動作
-      within '.boardroom-creater' do
-        expect do
-          click_button 'ボードを作成'
-          expect(current_path).to eq boardroom_path(boardroom.id)
-        end.to change(Boardroom, :count).by(1)
-      end
-
-      visit article_path(article1.id)
-
       # 最新のボードドロップダウンの動作
       within '.now-boardroom-shower' do
         find('.dropdown-toggle').click
         expect(page).to have_content "ボード#{boardroom.id}"
       end
+
+      # ボード作成の動作
+      within '.boardroom-creater' do
+        expect do
+          click_button 'ボードを作成'
+          # default_scopeで降順を設定しているのでfirst指定
+          expect(current_path).to eq boardroom_path(Boardroom.first.id)
+        end.to change(Boardroom, :count).by(1)
+      end
+
+      visit article_path(article1.id)
 
       # お気に入りボタンの動作
       within '#favor_form' do
