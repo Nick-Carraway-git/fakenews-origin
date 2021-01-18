@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_many :articles, dependent: :destroy
-  has_many :user_boardrooms
+  has_many :user_boardrooms, dependent: :destroy
   has_many :boardrooms, through: :user_boardrooms
   has_many :chats
   # Userを消した時にメールを消すかは要考慮

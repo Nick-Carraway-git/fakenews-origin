@@ -53,11 +53,23 @@ RSpec.describe 'Users', type: :system do
       end
 
       visit user_path(user1.id)
-      ## メニュー部分の動作確認
+      # メニュー部分の動作確認
       within '.user-articles-box' do
-        # 編集リンクの確認
+        # 記事を読むの確認
         find("#article-modal-button-#{article1.id}").click
         expect(page).to have_link '記事を読む', href: article_path(article1.id)
+        visit user_path(user1.id)
+        # 編集リンクの確認
+        find("#article-modal-button-#{article1.id}").click
+        expect(page).to have_link '記事を編集', href: edit_article_path(article1.id)
+        visit user_path(user1.id)
+        # 削除リンクの確認
+        find("#article-modal-button-#{article1.id}").click
+        expect do
+          page.accept_confirm do
+            click_link '記事を削除'
+          end
+        end.to change(Article, :count).by(-1)
       end
     end
   end

@@ -2,7 +2,7 @@ class Article < ApplicationRecord
   belongs_to :user
   has_one_attached :image
   default_scope -> { order(created_at: :desc) }
-  has_many :boardrooms
+  has_many :boardrooms, dependent: :destroy, foreign_key: :article_id
   has_many :favorites, dependent: :destroy
   validates :user_id, presence: true
   validates :title, presence: true, uniqueness: true, length: { maximum: 70 }
