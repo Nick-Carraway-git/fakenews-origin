@@ -1,7 +1,7 @@
 <!-- partial化 -->
 <div class="user-profile-box">
   <div class="row">
-    <section class="user_info col-sm-5 col-12">
+    <section class="user-info col-sm-5 col-12">
       <%if @user.image.attached? %>
         <%= image_tag @user.image.variant(combine_options:{resize:"600x600^",crop:"600x600+0+0",gravity: :center}).processed, class: "avator" %>
       <% else %>
