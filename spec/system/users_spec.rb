@@ -42,14 +42,22 @@ RSpec.describe 'Users', type: :system do
       end
     end
 
-    it "メインメニューの動作確認" do
+    it "メインメニューの動作確認" , js: true do
       # プロフィール部分の動作確認
       within '.user-profile-box' do
         # 編集リンクの確認
         expect(page).to have_link nil, href: edit_user_registration_path
         # ログインユーザー以外では、メールフォームを設置
         visit user_path(user2.id)
-        expect(page).to have_link nil, href: edit_user_registration_path
+        expect(page).to have_link nil, href: new_minimail_path(reciever_id: user2.id)
+      end
+
+      visit user_path(user1.id)
+      # メニュー部分の動作確認
+      within '.user-articles-box' do
+        # 編集リンクの確認
+        find("#article-modal-button-#{article1.id}").click
+        expect(page).to have_link '記事を読む', href: article_path(article1.id)
       end
     end
   end

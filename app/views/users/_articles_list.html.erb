@@ -1,7 +1,7 @@
 <% if @user.articles.any? %>
   <div class="row">
     <% @articles.each do |article| %>
-      <button type="button" id="<% "article-modal-button-#{article.id}" %>" class="modal-button col-6" style="display:inline-block;" data-toggle="modal" data-target="#mordal-<%= article.id %>">
+      <button type="button" id="article-modal-button-<%= article.id %>" class="modal-button col-6" style="display:inline-block;" data-toggle="modal" data-target="#mordal-<%= article.id %>">
         <%= image_tag article.image.variant(combine_options:{resize:"900x900^",crop:"900x900+0+0",gravity: :center}).processed, class: "thumbnail img-thumbnail" %>
         <div class="mask">
           <div class="caption"><%= article.title %></div>
