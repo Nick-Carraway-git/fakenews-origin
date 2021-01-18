@@ -5,7 +5,7 @@
         <% article.categories.each do |category| %>
           <div class="index-category-tag"><%= category.name %></div>
         <% end %>
-        <h2 class="title-decoration"><%= "#{article.title}" %></h2>
+        <h2 class="title-decoration"><%= article.title %></h2>
         <p class="time-decoration text-muted"><%= " #{article.created_at.strftime('%Y/%m/%d %H:%M')}" %></p>
         <div class="picture-decoration-box">
         <!-- 画像がNotFoundの場合には記事を削除-->

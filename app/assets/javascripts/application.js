@@ -17,3 +17,14 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require_tree .
+
+(function() {
+  if( window.localStorage ) {
+    if( !localStorage.getItem('first') ) {
+      localStorage['first'] = true;
+      window.location.reload();
+    }
+    else
+      localStorage.removeItem('first');
+    }
+})();

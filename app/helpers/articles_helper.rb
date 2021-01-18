@@ -5,7 +5,7 @@ module ArticlesHelper
         image_tag article.image.variant(combine_options:{resize:"500x400^",
                                                          crop:"500x400+0+0",
                                                          gravity: :center}).processed,
-                                        class: 'picture-decoration'
+                                        class: 'picture-decoration', alt: "picture-decoration-#{article.id}"
       end
     rescue
       article.destroy

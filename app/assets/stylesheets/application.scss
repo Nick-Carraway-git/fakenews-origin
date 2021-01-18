@@ -803,20 +803,24 @@ footer {
   .title-decoration {
     font-size: 20px;
     margin-top: 8px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 }
 
 @media screen and (min-width: 850px) and (max-width: 1024px) {
   .title-decoration {
-    font-size: 26px;
-    margin-top: 8px;
+    font-size: 24px;
+
   }
 }
 
 @media screen and (min-width: 1025px) {
   .title-decoration {
-    font-size: 32px;
-    margin-top: 8px;
+    font-size: 26px;
+
   }
 }
 
