@@ -21,7 +21,7 @@ RSpec.describe 'Users', type: :system do
       visit user_path(user1.id)
     end
 
-    it "メインメニューの表示", js: true do
+    it "メインメニューの表示" do
       # プロフィールの表示
       within '.user-profile-box' do
         expect(page).to have_selector 'img.avator'
@@ -32,11 +32,24 @@ RSpec.describe 'Users', type: :system do
         expect(page).to have_selector '#followers', text: user1.followers.count
       end
 
-      # 投稿記事の表示
-      within '.user-article-box' do
-        expect(page).to have_button "#article-modal-button-#{article1.id}"
-        find('.modal-button').hover
-        expect(page).to have_content article1.title
+      within '.user-articles-box' do
+        # 投稿記事の表示
+        expect(page).to have_button article1.title
+        expect(page).to have_selector 'img.thumbnail'
+        # ボードの表示
+        expect(page).to have_link "#{boardroom1.article.title.slice(0..15)} Part.#{boardroom1.id}"
+        expect(page).to have_link "#{boardroom2.article.title.slice(0..15)} Part.#{boardroom2.id}"
+      end
+    end
+
+    it "メインメニューの動作確認" do
+      # プロフィール部分の動作確認
+      within '.user-profile-box' do
+        # 編集リンクの確認
+        expect(page).to have_link nil, href: edit_user_registration_path
+        # ログインユーザー以外では、メールフォームを設置
+        visit user_path(user2.id)
+        expect(page).to have_link nil, href: edit_user_registration_path
       end
     end
   end
