@@ -53,7 +53,7 @@ RSpec.describe 'Users', type: :system do
       end
 
       visit user_path(user1.id)
-      # メニュー部分の動作確認
+      ## メニュー部分の動作確認
       within '.user-articles-box' do
         # 編集リンクの確認
         find("#article-modal-button-#{article1.id}").click
