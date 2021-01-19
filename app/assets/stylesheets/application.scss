@@ -572,9 +572,12 @@ footer {
   margin-bottom: 40px;
 }
 
+.nav-tabs .nav-link.active, .nav-tabs .show > .nav-link {
+    background-color: #bbb;
+}
+
 .menu-tab {
   font-size: 12px;
-
 }
 
 @media screen and (min-width: 800px) {

@@ -83,7 +83,7 @@
         <span>"WOULD-BE FUNNIEST NEWS"</span>
         <div class="top-heading-button">
           <%= link_to 'サービス概要', aboutus_path %>
-          <%= link_to 'ゲストログイン', users_guest_log_in_path, method: :post  %>
+          <%= link_to 'ゲストログイン', users_guest_log_in_path, method: :post unless user_signed_in? %>
         </div>
       </div>
     </div>
