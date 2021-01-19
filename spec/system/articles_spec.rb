@@ -98,6 +98,7 @@ RSpec.describe 'Articles', type: :system do
     context "入力が正常の場合" do
       it "記事投稿の成功" do
         expect do
+          check category1.name
           fill_in 'title-box', with: 'Test Title'
           fill_in 'content-box', with: 'Test content.'
           fill_in 'image_description-box', with: 'Test picture desu.'

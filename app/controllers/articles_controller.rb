@@ -34,10 +34,14 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = current_user.articles.build(article_params)
-    @article.image.attach(params[:article][:image])
-    if @article.save
-      redirect_to article_path(@article)
+    unless params[:article][:category_ids] == [""]
+      @article = current_user.articles.build(article_params)
+      @article.image.attach(params[:article][:image])
+      if @article.save
+        redirect_to article_path(@article)
+      else
+        redirect_to new_article_path
+      end
     else
       redirect_to new_article_path
     end

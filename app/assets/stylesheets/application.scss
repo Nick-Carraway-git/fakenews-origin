@@ -572,23 +572,28 @@ footer {
   margin-bottom: 40px;
 }
 
-.nav-tabs .nav-link.active, .nav-tabs .show > .nav-link {
-    background-color: #bbb;
+.nav-tabs .nav-link.active {
+  background-color: #223a70;
 }
 
 .menu-tab {
   font-size: 12px;
 }
 
+.menu-tab span {
+  text-decoration: none;
+  color: rgba(0,0,0,0.7);
+}
+
+.nav-tabs .nav-link.active span {
+  color: #f3f3f3;
+  background-color: #223a70;
+}
+
 @media screen and (min-width: 800px) {
   .menu-tab {
     font-size: 16px;
   }
-}
-
-.menu-tab span {
-  text-decoration: none;
-  color: rgba(0,0,0,0.7);
 }
 
 /* user(show/follow) */
@@ -949,6 +954,11 @@ footer {
 }
 
 /* mails */
+.mail-menu-tab-box {
+  margin-top: 110px;
+  margin-bottom: 40px;
+}
+
 .minimails-box {
 
 }
