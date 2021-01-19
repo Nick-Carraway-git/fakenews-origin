@@ -84,4 +84,30 @@ RSpec.describe 'Users', type: :system do
       end
     end
   end
+
+  describe "フォロー中ユーザーのテスト" do
+    before do
+      login(user1)
+      visit following_user_path(relationship1.follower_id)
+    end
+
+    it "フォロー中ユーザーの確認" do
+      within '.follow-member-box' do
+        expect(page).to have_link "#{user2.name}-#{user2.id}", href: user_path(user2.id)
+      end
+    end
+  end
+
+  describe "フォロワーユーザーのテスト" do
+    before do
+      login(user1)
+      visit followers_user_path(relationship2.followed_id)
+    end
+
+    it "フォロワーユーザーの確認" do
+      within '.follow-member-box' do
+        expect(page).to have_link "#{user2.name}-#{user2.id}", href: user_path(user2.id)
+      end
+    end
+  end
 end
