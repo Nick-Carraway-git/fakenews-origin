@@ -19,6 +19,12 @@ class User < ApplicationRecord
   has_many :favoried, through: :articles, source: :favorite
 
   has_one_attached :image
+
+  validates :name, presence: true, uniqueness: true, length: { maximum: 30 }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, uniqueness: true, length: { maximum: 70 },
+                    format: { with: VALID_EMAIL_REGEX }
+  validates :introduce, length: { maximum: 400 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -46,9 +52,7 @@ class User < ApplicationRecord
   # フォロー関係のメソッド
   # ユーザーをフォローする
   def follow(other_user)
-    # unless self == other_user
-      following << other_user
-    # end
+    following << other_user
   end
 
   # ユーザーをフォロー解除する

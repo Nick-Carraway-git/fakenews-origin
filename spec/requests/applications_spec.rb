@@ -23,7 +23,7 @@ RSpec.describe "Applications", type: :request do
 
     context "ログインしている場合" do
       before do
-        sign_in user1
+        sign_in user
         get root_path
       end
 
