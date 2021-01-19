@@ -6,8 +6,10 @@ RSpec.describe 'Articles', type: :system do
   let(:article2) { create(:article) }
   let!(:category1) { create(:category) }
   let!(:category2) { create(:category) }
-  let!(:article_category1) { create(:article_category, article_id: article1.id, category_id: category1.id) }
-  let!(:article_category2) { create(:article_category, article_id: article2.id, category_id: category2.id) }
+  let!(:article_category1) { create(:article_category, article_id: article1.id,
+                                                       category_id: category1.id) }
+  let!(:article_category2) { create(:article_category, article_id: article2.id,
+                                                       category_id: category2.id) }
   let!(:boardroom) { create(:boardroom, article_id: article1.id) }
 
   describe "記事詳細ページのテスト" do
@@ -50,9 +52,9 @@ RSpec.describe 'Articles', type: :system do
       within '.boardroom-creater' do
         expect do
           click_button 'ボードを作成'
-          # default_scopeで降順を設定しているのでfirst指定
-          # expect(current_path).to eq boardroom_path(Boardroom.first.id)
         end.to change(Boardroom, :count).by(1)
+        # default_scopeで降順を設定しているのでfirst指定
+        expect(current_path).to eq boardroom_path(Boardroom.first.id)
       end
 
       visit article_path(article1.id)
@@ -82,7 +84,8 @@ RSpec.describe 'Articles', type: :system do
       expect(page).to have_content article1.title
       expect(page).to have_content category2.name
       expect(page).to have_content article2.title
-      expect(page).to have_link "picture-decoration-#{article2.id}", href: article_path(article2.id)
+      expect(page).to have_link "picture-decoration-#{article2.id}",
+                                href: article_path(article2.id)
     end
   end
 end
