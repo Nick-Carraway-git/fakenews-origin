@@ -1,13 +1,17 @@
-<%= render 'article_heading', article: @article %>
-<%= render 'boardroom_parts', article: @article, boardroom: @boardroom,
-                              boardrooms: @boardrooms, past_boardrooms: @past_boardrooms %>
-<%= render 'article_body', article: @article %>
+<div class="article-border">
+  <%= render 'article_heading', article: @article %>
+  <%= render 'boardroom_parts', article: @article, boardroom: @boardroom,
+                                boardrooms: @boardrooms, past_boardrooms: @past_boardrooms %>
+  <%= render 'article_body',    article: @article %>
 
-<div class="row bottom-menu">
-  <div class="col-6">
-    <%= render 'favorite_form', article_id: @article.id %>
+  <div class="row bottom-menu">
+    <div class="col-6">
+      <%= render 'favorite_form', article_id: @article.id %>
+    </div>
+    <div class="col-6">
+      <%= link_to 'トップへ戻る', '#', class: 'btn bottom-button' %>
+    </div>
   </div>
-  <div class="col-6">
-    <%= link_to 'トップへ戻る', '#', class: 'btn bottom-button' %>
-  </div>
+
+  <%= render 'auther_info',  user: @article.user %>
 </div>

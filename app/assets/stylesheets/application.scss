@@ -860,10 +860,18 @@ footer {
   text-align: center;
 }
 
-.article-body-box {
-  margin: 35px;
-  white-space: pre-wrap;
-  // text-align: center;
+@media screen and (min-width: 300px) {
+  .article-body-box {
+    margin: 0px 15px 15px;
+    white-space: pre-wrap;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .article-body-box {
+    margin: 30px;
+    white-space: pre-wrap;
+  }
 }
 
 .article-background {
@@ -951,6 +959,18 @@ footer {
 
 .bottom-button:hover {
   color:#4c6cb3;
+}
+
+.auther-member-outline {
+  margin-top: 20px;
+}
+
+.auther-member-info {
+  text-align: center;
+}
+
+.auther-member-info p {
+  color: #4f595d;
 }
 
 /* mails */
