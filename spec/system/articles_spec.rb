@@ -88,4 +88,36 @@ RSpec.describe 'Articles', type: :system do
                                 href: article_path(article2.id)
     end
   end
+
+  describe "記事投稿のテスト", js: true do
+    before do
+      login(user)
+      visit new_article_path
+    end
+
+    context "入力が正常の場合" do
+      it "記事投稿の成功" do
+        expect do
+          fill_in 'title-box', with: 'Test Title'
+          fill_in 'content-box', with: 'Test content.'
+          fill_in 'image_description-box', with: 'Test picture desu.'
+          attach_file 'image_upload-button', "#{Rails.root}/spec/fixtures/sample.jpg"
+          click_on "Post"
+        end.to change(Article, :count).by(1)
+        expect(page).to have_content 'Test Title'
+      end
+    end
+
+    context "入力が不正な場合" do
+      it "記事投稿の失敗" do
+        expect do
+          fill_in 'title-box', with: ''
+          fill_in 'content-box', with: 'Test content.'
+          fill_in 'image_description-box', with: 'Test picture desu.'
+          click_on "Post"
+        end.to change(Article, :count).by(0)
+        expect(current_path).to eq new_article_path
+      end
+    end
+  end
 end

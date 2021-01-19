@@ -10,7 +10,7 @@ class Article < ApplicationRecord
   validates :image_description, presence: true, length: { maximum: 70 }
   validates :image,   content_type: { in: %w[image/jpeg image/png],
                                     message: "must be a valid image format" },
-                    size:         { less_than: 3.megabytes,
+                      size:         { less_than: 3.megabytes,
                                     message: "should be less than 3MB" }
   validate  :image_presence
 
