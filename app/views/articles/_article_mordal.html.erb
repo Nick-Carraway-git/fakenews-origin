@@ -26,9 +26,11 @@
           <div class="article-modal-item">
             <%= link_to '記事を読む', article_path(article), rocal: true, class: "article-link btn btn-read" %>
           </div>
-          <div class="article-modal-item">
-            <%= link_to '記事を編集', edit_article_path(article), rocal: true, class: "article-link btn btn-edit" %>
-          </div>
+          <% if article.user == current_user %>
+            <div class="article-modal-item">
+              <%= link_to '記事を編集', edit_article_path(article), rocal: true, class: "article-link btn btn-edit" %>
+            </div>
+          <% end %>
           <% if article.user == current_user %>
             <div class="article-modal-item">
               <%= link_to '記事を削除', article, class: "article-link btn btn-delete", method: :delete, data: { confirm: "本当によろしいですか?" } %>
