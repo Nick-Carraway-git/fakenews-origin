@@ -23,14 +23,4 @@ RSpec.describe "Minimails", type: :system do
       end.to change(Minimail, :count).by(1)
     end
   end
-
-  describe "ミニメール削除のテスト" do
-    before do
-
-    end
-
-    it "メール送信の成功" do
-      
-    end
-  end
 end
