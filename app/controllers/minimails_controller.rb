@@ -2,8 +2,8 @@ class MinimailsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @recievedMail = Minimail.where(reciever_id: current_user.id)
-    @sendedMail = Minimail.where(sender_id: current_user.id)
+    @recievedMail = Minimail.where(reciever_id: current_user.id).limit(100)
+    @sendedMail = Minimail.where(sender_id: current_user.id).limit(100)
   end
 
   def show

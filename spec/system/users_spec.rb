@@ -147,4 +147,42 @@ RSpec.describe 'Users', type: :system do
       end
     end
   end
+
+  describe "編集メニューのテスト" do
+    before do
+      login(user1)
+      visit edit_user_registration_path
+    end
+
+    it "現在のユーザー情報を表示" do
+      have_field '名前', with: user1.name
+      have_field 'メールアドレス', with: user1.name
+      have_field '自己紹介', with: user1.name
+    end
+
+    it "更新の完了" do
+      fill_in '名前', with: 'New Name'
+      fill_in 'メールアドレス', with: 'New@google.com'
+      fill_in '自己紹介', with: 'New Introduce.'
+      fill_in '現在のパスワード', with: user1.password
+      click_on "更新"
+      expect(current_path).to eq user_path(user1)
+      expect(page).to have_content 'New Name'
+    end
+  end
+
+  describe "アカウント削除のテスト" do
+    before do
+      login(user1)
+      visit edit_user_registration_path
+    end
+
+    it "アカウント削除の成功", js: true do
+      expect do
+        click_link 'アカウント削除'
+        page.driver.browser.switch_to.alert.accept
+        expect(current_path).to eq root_path
+      end.to change(User, :count).by(-1)
+    end
+  end
 end

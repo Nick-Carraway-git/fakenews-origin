@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
-  let(:user) { create(:user, introduce: 'Nice to meet you.') }
-
   describe "ユーザー個別ページ(users/show)のテスト" do
+    let(:user) { create(:user) }
+
     before do
       get user_path(user.id)
     end

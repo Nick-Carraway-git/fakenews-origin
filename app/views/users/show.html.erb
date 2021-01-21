@@ -16,7 +16,7 @@
             <i class="fas fa-pen"></i>
           <% end %>
         <% else %>
-          <%= link_to new_minimail_path(reciever_id: @user.id), class: 'profile-edit-button' do %>
+          <%= link_to new_minimail_path(reciever_id: @user.id), class: 'profile-edit-button', id: 'profile-sender' do %>
             <i class="fas fa-paper-plane"></i>
           <% end %>
         <% end %>

@@ -76,4 +76,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
         resource.update_with_password(params)
       end
     end
+
+    # アカウント編集後のリダイレクト先の変更
+    def after_update_path_for(resource)
+      user_path(@user)
+    end    
 end
