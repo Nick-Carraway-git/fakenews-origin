@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe "Userモデルの作成" do
-    context "パラメータが有効な時" do
+    context "パラメータが正常な場合" do
       it "名前、メールアドレス、パスワード、パスワード(確認用)があれば有効" do
         user = build(:user)
         expect(user).to be_valid
       end
     end
 
-    context "パラメータが無効な時(名前)" do
+    context "パラメータが不正な場合(名前)" do
       it "名前なしは無効" do
         user = build(:user, name: nil)
         expect(user).not_to be_valid
@@ -21,7 +21,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context "パラメータが無効な時(メールアドレス)" do
+    context "パラメータが不正な場合(メールアドレス)" do
       it "メールアドレスなしは無効" do
         user = build(:user, email: nil)
         expect(user).not_to be_valid
@@ -39,7 +39,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context "パラメータが無効な時(パスワード)" do
+    context "パラメータが不正な場合(パスワード)" do
       it "パスワードなしは無効" do
         user = build(:user, password: nil)
         expect(user).not_to be_valid
@@ -51,7 +51,7 @@ RSpec.describe User, type: :model do
       end
     end
 
-    context "パラメータが無効な時(パスワード確認用)" do
+    context "パラメータが不正な場合(パスワード確認用)" do
       it "パスワード確認用なしは無効" do
         user = build(:user, password: 'abcdefg', password_confirmation: '')
         expect(user).not_to be_valid
