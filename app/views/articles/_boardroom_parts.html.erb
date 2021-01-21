@@ -14,7 +14,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="br-dropdown">
             <% @boardrooms.first(BRANDNEW_BOARD_NOM).each do |boardroom| %>
-              <%= link_to boardroom_path(boardroom), target: :_blank, class: 'dropdown-item' do %>
+              <%= link_to boardroom_path(boardroom), class: 'dropdown-item' do %>
                 <i class="far fa-newspaper"></i><%= "ボード#{boardroom.id}" %>
               <% end %>
             <% end %>
@@ -30,7 +30,7 @@
           </button>
           <div class="dropdown-menu" aria-labelledby="pbr-dropdown">
             <% @past_boardrooms.each do |boardroom| %>
-              <%= link_to boardroom_path(boardroom), target: :_blank, class: 'dropdown-item' do %>
+              <%= link_to boardroom_path(boardroom), class: 'dropdown-item' do %>
                 <i class="far fa-newspaper"></i><%= "ボード#{boardroom.id}" %>
               <% end %>
             <% end %>

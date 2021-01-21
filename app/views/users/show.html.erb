@@ -85,7 +85,7 @@
 <!-- partial化 -->
 <div class="user-articles-box">
   <div class="row">
-    <div class="col-12 col-md-8">
+    <div class="col-12 col-md-8 article-thumnails">
       <h5 class="user-articles-heading">My Articles</h5>
       <div id="articles_list"><%= render 'articles_list' %></div>
       <div class="more"><%= link_to_next_page @articles, 'もっと見る', remote: true, id: 'view_more_a', :param_name => 'articles_page' %></div>

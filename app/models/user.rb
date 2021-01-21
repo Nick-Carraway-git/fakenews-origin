@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :articles, dependent: :destroy
   has_many :user_boardrooms, dependent: :destroy
   has_many :boardrooms, through: :user_boardrooms
-  has_many :chats
+  has_many :chats, dependent: :destroy
   # Userを消した時にメールを消すかは要考慮
   has_many :send_minimails, class_name: "Minimail", foreign_key: "sender_id", dependent: :destroy
   has_many :recieve_minimails, class_name: "Minimail", foreign_key: "reciever_id", dependent: :destroy
@@ -38,7 +38,7 @@ class User < ApplicationRecord
       user.name = auth.info.name
       # user.username = auth.info.name
       user.email = auth.info.email
-      user.password = Devise.friendly_token[0, 20] # ランダムなパスワードを作成
+      user.password = Devise.friendly_token[0, 20]
       # user.image = auth.info.image.gsub("picture","picture?type=large") if user.provider == "facebook"
     end
   end

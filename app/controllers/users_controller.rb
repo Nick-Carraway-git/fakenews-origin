@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:following, :followers, :favoring, :sended, :recieved]
   before_action :mail_checker, only: [:sended, :recieved]
 
+  def index
+    redirect_to new_user_registration_path
+  end
+
   def show
     @user = User.find_by(id: params[:id])
     return redirect_to request.referrer || root_url if @user.blank?

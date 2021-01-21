@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :boardroom do
     name { "MyString" }
-    article
+    association :article, factory: :article
   end
 end
