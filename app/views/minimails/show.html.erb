@@ -3,8 +3,14 @@
     <h4><%= @minimail.title %></h4>
     <div class="">
       <span>from:<%= @minimail.sender.name %></span>
-      <%= link_to new_minimail_path(reciever_id: @minimail.sender.id), class: 'profile-edit-button' do %>
-        <i class="fas fa-reply"></i>
+      <% if @minimail.reciever_id == current_user.id %>
+        <%= link_to new_minimail_path(reciever_id: @minimail.sender.id), class: 'profile-edit-button' do %>
+          <i class="fas fa-reply"></i>
+        <% end %>
+      <% else %>
+        <%= link_to new_minimail_path(reciever_id: @minimail.reciever.id), class: 'profile-edit-button' do %>
+          <i class="fas fa-reply"></i>
+        <% end %>
       <% end %>
     </div>
 
