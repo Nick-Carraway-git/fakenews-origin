@@ -10,7 +10,7 @@ RSpec.describe 'Articles', type: :system do
                                                        category_id: category1.id) }
   let!(:article_category2) { create(:article_category, article_id: article2.id,
                                                        category_id: category2.id) }
-  # let!(:boardroom) { create(:boardroom, article_id: article1.id) }
+  let!(:boardroom) { create(:boardroom, article_id: article1.id) }
 
   describe "記事詳細ページのテスト" do
     before do
