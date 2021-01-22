@@ -6,7 +6,7 @@
         <i class="fas fa-door-open"></i> 退出する
       <% end %>
     </h4>
-    <input type="text" data-behavior="boardroom_speaker" data-user="<%= current_user.id %>" data-boardroom="<%= @boardroom.id %>">
+    <input type="text" id="speak-field" data-behavior="boardroom_speaker" data-user="<%= current_user.id %>" data-boardroom="<%= @boardroom.id %>">
   </div>
 
   <div class="col-12 offset-md-2 col-md-8 chat-room">

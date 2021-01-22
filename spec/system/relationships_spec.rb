@@ -21,7 +21,7 @@ RSpec.describe "Relationships", type: :system do
     end
   end
 
-  describe "フォロー機能のテスト" do
+  describe "フォロー解除機能のテスト" do
     before do
       login(user2)
       visit user_path(user1.id)

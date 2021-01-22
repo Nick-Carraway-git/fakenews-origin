@@ -10,7 +10,7 @@ RSpec.describe 'Articles', type: :system do
                                                        category_id: category1.id) }
   let!(:article_category2) { create(:article_category, article_id: article2.id,
                                                        category_id: category2.id) }
-  let!(:boardroom) { create(:boardroom, article_id: article1.id) }
+  # let!(:boardroom) { create(:boardroom, article_id: article1.id) }
 
   describe "記事詳細ページのテスト" do
     before do
@@ -52,9 +52,9 @@ RSpec.describe 'Articles', type: :system do
       within '.boardroom-creater' do
         expect do
           click_button 'ボードを作成'
+          # default_scopeで降順を設定しているのでfirst指定
+          expect(current_path).to eq boardroom_path(Boardroom.first.id)
         end.to change(Boardroom, :count).by(1)
-        # default_scopeで降順を設定しているのでfirst指定
-        # expect(current_path).to eq boardroom_path(Boardroom.first.id)
       end
 
       visit article_path(article1.id)
