@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe Relationship, type: :model do
   let(:user1) { create(:user) }
   let(:user2) { create(:user) }
-  let(:user3) { create(:user) }
-  let(:user4) { create(:user) }
+  let!(:user3) { create(:user) }
+  let!(:user4) { create(:user) }
   let!(:relationship) { user3.active_relationships.create(followed_id: user4.id) }
 
   describe "Relationshipモデルの作成" do
