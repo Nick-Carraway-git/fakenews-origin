@@ -1,14 +1,14 @@
 <div class="row">
   <div class="mail-shower col-12 col-md-8 offset-md-2">
     <h4><%= @minimail.title %></h4>
-    <div class="">
+    <div class="reply">
       <span>from:<%= @minimail.sender.name %></span>
       <% if @minimail.reciever_id == current_user.id %>
-        <%= link_to new_minimail_path(reciever_id: @minimail.sender.id), class: 'profile-edit-button' do %>
+        <%= link_to new_minimail_path(reciever_id: @minimail.sender.id), class: 'profile-edit-button', id: 'reply-mark' do %>
           <i class="fas fa-reply"></i>
         <% end %>
       <% else %>
-        <%= link_to new_minimail_path(reciever_id: @minimail.reciever.id), class: 'profile-edit-button' do %>
+        <%= link_to new_minimail_path(reciever_id: @minimail.reciever.id), class: 'profile-edit-button', id: 'reply-mark' do %>
           <i class="fas fa-reply"></i>
         <% end %>
       <% end %>

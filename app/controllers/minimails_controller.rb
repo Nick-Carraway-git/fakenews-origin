@@ -21,9 +21,10 @@ class MinimailsController < ApplicationController
   def create
     @minimail = current_user.send_minimails.build(minimail_params)
     if @minimail.save
-      redirect_to root_url
+      redirect_to sended_user_path(current_user)
     else
-      redirect_to root_url
+      recieveUser = User.find_by(id: params[:minimail][:reciever_id])
+      redirect_to new_minimail_path(reciever_id: recieveUser.id)
     end
   end
 
