@@ -50,6 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: i2xbgc0l03enlic3
-  username: v8ugteddn0bwgvt8
+  database: <%= Rails.application.credentials.db[:database] %>
+  username: <%= Rails.application.credentials.db[:username] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
