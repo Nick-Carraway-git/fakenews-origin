@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Boardroom, type: :model do
   let!(:article) { create(:article) }
+  let!(:boardroom) { create(:boardroom, article_id: article.id) }
 
   describe "Boardroomモデルの作成" do
     it "親記事があれば有効" do
@@ -16,8 +17,6 @@ RSpec.describe Boardroom, type: :model do
   end
 
   describe "Boardroomの依存性" do
-    let!(:boardroom) { create(:boardroom, article_id: article.id) }
-
     it "親記事が消えるとボードルームも消える" do
       expect do
         article.destroy

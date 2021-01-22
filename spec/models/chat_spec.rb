@@ -1,9 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Chat, type: :model do
-  describe "Chatモデルの作成" do
-    let(:chat) { create(:chat) }
+  let!(:chat) { create(:chat, user_id: user.id, boardroom_id: boardroom.id) }
+  let!(:user) { create(:user) }
+  let!(:boardroom) { create(:boardroom) }
 
+  describe "Chatモデルの作成" do
     context "パラメータが正常な場合" do
       it "ユーザー、ボードルーム、メッセージがあれば有効" do
         expect(chat).to be_valid
@@ -34,10 +36,6 @@ RSpec.describe Chat, type: :model do
   end
 
   describe "Chatモデルの依存性" do
-    let!(:user) { create(:user) }
-    let!(:boardroom) { create(:boardroom) }
-    let!(:chat1) { create(:chat, user_id: user.id, boardroom_id: boardroom.id) }
-
     it "ユーザー、ボードルーム、メッセージがあれば有効" do
       expect do
         user.destroy

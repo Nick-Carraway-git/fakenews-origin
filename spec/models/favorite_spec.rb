@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Favorite, type: :model do
-  let(:user) { create(:user) }
-  let(:article) { create(:article) }
-  let(:favorite) { article.favorites.build(user_id: user.id) }
+  let!(:user) { create(:user) }
+  let!(:article) { create(:article) }
+  let!(:favorite) { article.favorites.build(user_id: user.id) }
 
   describe "Favoriteモデルの作成" do
     context "パラメータが正常な場合" do
@@ -26,10 +26,6 @@ RSpec.describe Favorite, type: :model do
   end
 
   describe "Favoriteモデルの依存性" do
-    let!(:user) { create(:user) }
-    let!(:article) { create(:article) }
-    let!(:favorite) { article.favorites.create(user_id: user.id) }
-
     it "ユーザーが削除されると、お気に入りも削除" do
       expect do
         user.destroy

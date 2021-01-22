@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe UserBoardroom, type: :model do
+  let!(:user) { create(:user) }
+  let!(:boardroom) { create(:boardroom) }
+
   describe "UserBoardroomモデルの作成" do
     it "参加ユーザー、ボードルームがあれば有効" do
       user_boardroom = build(:user_boardroom)
@@ -8,7 +11,7 @@ RSpec.describe UserBoardroom, type: :model do
     end
 
     it "参加ユーザーなしは無効" do
-      user_boardroom = build(:user_boardroom, article_id: nil)
+      user_boardroom = build(:user_boardroom, user_id: nil)
       expect(user_boardroom).not_to be_valid
     end
 
@@ -19,9 +22,6 @@ RSpec.describe UserBoardroom, type: :model do
   end
 
   describe "UserBoardroomモデルの依存性" do
-    let!(:user) { create(:user) }
-    let!(:boardroom) { create(:boardroom) }
-
     it "ユーザーが消えると中間レコードも消える" do
       expect do
         user.destroy

@@ -1,14 +1,18 @@
 require 'rails_helper'
 
 RSpec.describe Minimail, type: :model do
-  describe "Minimailモデルの作成" do
-    let(:user1) { create(:user) }
-    let(:user2) { create(:user) }
-    let(:minimail1) { user1.send_minimails.build(reciever_id: user2.id,
-                                                 title: 'Title1', content: 'Content1') }
-    let(:minimail2) { user1.recieve_minimails.build(sender_id: user2.id,
-                                                 title: 'Title2', content: 'Content2') }
+  let(:user1) { create(:user) }
+  let(:user2) { create(:user) }
+  let!(:minimail1) { user1.send_minimails.build(reciever_id: user2.id,
+                                               title: 'Title1', content: 'Content1') }
+  let!(:minimail2) { user1.recieve_minimails.build(sender_id: user2.id,
+                                               title: 'Title2', content: 'Content2') }
 
+  let!(:user3) { create(:user) }
+  let!(:user4) { create(:user) }
+  let!(:minimail3) { user3.send_minimails.create(reciever_id: user4.id,
+                                                title: 'Title1', content: 'Content1') }
+  describe "Minimailモデルの作成" do
     context "パラメータが有効な場合" do
       it "送信者、受信者、件名、本文があれば有効" do
         expect(minimail1).to be_valid
@@ -50,11 +54,6 @@ RSpec.describe Minimail, type: :model do
   end
 
   describe "Minimailモデルの依存性" do
-    let!(:user3) { create(:user) }
-    let!(:user4) { create(:user) }
-    let!(:minimail) { user3.send_minimails.create(reciever_id: user4.id,
-                                                  title: 'Title1', content: 'Content1') }
-
     it "送信者が削除されると、メールも削除" do
       expect do
         user3.destroy

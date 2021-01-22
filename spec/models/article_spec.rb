@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  describe "Articleモデルの作成" do
-    let!(:user) { create(:user) }
-    let(:article) { create(:article, user_id: user.id) }
+  let!(:user) { create(:user) }
+  let!(:article) { create(:article, user_id: user.id) }
 
+  describe "Articleモデルの作成" do
     context "パラメータが正常な場合" do
       it "タイトル、本文、画像説明文、ユーザーがあれば有効" do
         expect(article).to be_valid
@@ -56,12 +56,9 @@ RSpec.describe Article, type: :model do
   end
 
   describe "Articleの依存性" do
-    let!(:user1) { create(:user) }
-    let!(:article1) { create(:article, user_id: user1.id) }
-
     it "投稿ユーザーが削除されると、記事も削除" do
       expect do
-        user1.destroy
+        user.destroy
       end.to change(Article, :count).by(-1)
     end
   end
