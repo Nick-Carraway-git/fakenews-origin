@@ -177,7 +177,7 @@ RSpec.describe 'Users', type: :system do
       visit edit_user_registration_path
     end
 
-    it "アカウント削除の成功", js: true do
+    it "アカウント削除の成功", js: true, retry: 3 do
       expect do
         click_link 'アカウント削除'
         page.driver.browser.switch_to.alert.accept
