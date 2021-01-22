@@ -1,4 +1,4 @@
-<h4>新規投稿</h4>
+<h4 class="create-article-header">新規投稿</h4>
 <%= form_with(model: @article, local: true) do |f| %>
   <div class="article-new-field">
     <%= f.label :category, 'カテゴリ' %>
@@ -18,10 +18,10 @@
   <div class="article-new-field">
     <%= f.text_field :image_description, class: 'image_description-box', id: 'image_description-box', placeholder: '画像の説明を入力' %>
   </div>
-  <%= f.submit "Post", class: "btn btn-primary" %>
   <span class="image　article-new-field">
     <%= f.file_field :image, id: 'image_upload-button', accept: "image/jpeg, image/png" %>
   </span>
+  <%= f.submit "投稿", class: "btn send-btn" %>
 <% end %>
 
 <script type="text/javascript">

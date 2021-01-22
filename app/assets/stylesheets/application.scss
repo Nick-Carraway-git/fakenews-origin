@@ -785,6 +785,10 @@ footer {
 }
 
 /* article(new) */
+.create-article-header {
+  margin-top: 90px;
+}
+
 .article-new-field {
   margin: 20px 0;
 }
@@ -801,6 +805,11 @@ footer {
 .image_description-box {
   width: 100%;
   height: 35px;
+}
+
+#image_upload-button {
+  display: block;
+  margin-bottom: 15px;
 }
 
 /* articles(index) */
@@ -1028,6 +1037,10 @@ footer {
 }
 
 /* mails(show) */
+.create-mail-header {
+  margin: 90px 0 12px;
+}
+
 .mail-shower {
   margin-top: 10px;
   border-left: 1px solid #223a70;
@@ -1049,6 +1062,12 @@ footer {
 
 .mail-content {
   opacity: 0.7;
+}
+
+.send-btn {
+  padding: 8px 22px;
+  background-color: #223a70;
+  color: #f3f3f3;
 }
 
 /* chat */

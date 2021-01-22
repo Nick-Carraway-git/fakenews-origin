@@ -103,7 +103,7 @@ RSpec.describe 'Articles', type: :system do
           fill_in 'content-box', with: 'Test content.'
           fill_in 'image_description-box', with: 'Test picture desu.'
           attach_file 'image_upload-button', "#{Rails.root}/spec/fixtures/sample.jpg"
-          click_on "Post"
+          click_on "投稿"
         end.to change(Article, :count).by(1)
         expect(page).to have_content 'Test Title'
       end
@@ -115,7 +115,7 @@ RSpec.describe 'Articles', type: :system do
           fill_in 'title-box', with: ''
           fill_in 'content-box', with: 'Test content.'
           fill_in 'image_description-box', with: 'Test picture desu.'
-          click_on "Post"
+          click_on "投稿"
         end.to change(Article, :count).by(0)
         expect(current_path).to eq new_article_path
       end
