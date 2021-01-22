@@ -13,7 +13,7 @@ RSpec.describe "Boardrooms", type: :system do
         visit article_path(article)
       end
 
-      it "記事のボタンからボードルームの作成" do
+      it "記事のボタンからボードルームの作成", js: true, retry: 3 do
         within '.boardroom-creater' do
           expect do
             click_button 'ボードを作成'

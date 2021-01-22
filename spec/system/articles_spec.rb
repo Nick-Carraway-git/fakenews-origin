@@ -49,7 +49,7 @@ RSpec.describe 'Articles', type: :system do
       end
 
       # ボード作成の動作
-      within '.boardroom-creater' do
+      within '.boardroom-creater', js: true, retry: 3 do
         expect do
           click_button 'ボードを作成'
           # default_scopeで降順を設定しているのでfirst指定
