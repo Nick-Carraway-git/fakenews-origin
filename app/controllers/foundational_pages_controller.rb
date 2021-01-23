@@ -8,7 +8,7 @@ class FoundationalPagesController < ApplicationController
   def help
   end
 
-  def terms
+  def contact
   end
 
   def aboutus
