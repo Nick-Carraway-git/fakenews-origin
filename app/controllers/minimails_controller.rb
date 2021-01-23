@@ -1,11 +1,6 @@
 class MinimailsController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    @recievedMail = Minimail.where(reciever_id: current_user.id).limit(100)
-    @sendedMail = Minimail.where(sender_id: current_user.id).limit(100)
-  end
-
   def show
     @minimail = Minimail.find_by(id: params[:id])
     if @minimail.reciever_id == current_user.id
@@ -15,7 +10,7 @@ class MinimailsController < ApplicationController
 
   def new
     @minimail = Minimail.new(reciever_id: params[:reciever_id])
-    @recieveUser = User.find(params[:reciever_id])
+    @recieve_user = User.find(params[:reciever_id])
   end
 
   def create
@@ -23,8 +18,8 @@ class MinimailsController < ApplicationController
     if @minimail.save
       redirect_to sended_user_path(current_user)
     else
-      recieveUser = User.find_by(id: params[:minimail][:reciever_id])
-      redirect_to new_minimail_path(reciever_id: recieveUser.id)
+      recieve_user = User.find_by(id: params[:minimail][:reciever_id])
+      redirect_to new_minimail_path(reciever_id: recieve_user.id)
     end
   end
 
@@ -35,7 +30,7 @@ class MinimailsController < ApplicationController
 
   private
 
-    def minimail_params
-      params.require(:minimail).permit(:sender_id, :reciever_id, :title, :content, :reply_id)
-    end
+  def minimail_params
+    params.require(:minimail).permit(:sender_id, :reciever_id, :title, :content, :reply_id)
+  end
 end

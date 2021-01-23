@@ -1,6 +1,6 @@
 <div class="row">
-  <% if @categoryArticles %>
-    <% @categoryArticles.each do |article| %>
+  <% if @category_articles %>
+    <% @category_articles.each do |article| %>
       <div class="col-6">
         <div class="index-heading-box">
           <% article.categories.each do |category| %>
@@ -16,10 +16,10 @@
         </div>
       </div>
     <% end %>
-    <div class="article-paginate col-12"><%= paginate @categoryArticles, theme: 'twitter-bootstrap-4' %></div>
+    <div class="article-paginate col-12"><%= paginate @category_articles, theme: 'twitter-bootstrap-4' %></div>
   <% else %>
-    <% if @searchArticles %>
-      <% @searchArticles.each do |article| %>
+    <% if @search_articles %>
+      <% @search_articles.each do |article| %>
         <div class="col-6">
           <div class="index-heading-box">
             <% article.categories.each do |category| %>
@@ -36,6 +36,6 @@
         </div>
       <% end %>
     <% end %>
-    <div class="article-paginate col-12"><%= paginate @searchArticles, theme: 'twitter-bootstrap-4' %></div>
+    <div class="article-paginate col-12"><%= paginate @search_articles, theme: 'twitter-bootstrap-4' %></div>
   <% end %>
 </div>

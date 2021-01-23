@@ -68,17 +68,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   protected
 
-    # プロバイダからのログインの場合に、登録情報変更にパスワードを不要とする。
-    def update_resource(resource, params)
-      if !(@user.provider.blank?)
-        resource.update_without_password(params)
-      else
-        resource.update_with_password(params)
-      end
+  # プロバイダからのログインの場合に、登録情報変更にパスワードを不要とする。
+  def update_resource(resource, params)
+    if @user.provider.present?
+      resource.update_without_password(params)
+    else
+      resource.update_with_password(params)
     end
+  end
 
-    # アカウント編集後のリダイレクト先の変更
-    def after_update_path_for(resource)
-      user_path(@user)
-    end    
+  # アカウント編集後のリダイレクト先の変更
+  def after_update_path_for(resource)
+    user_path(@user)
+  end
 end

@@ -3,11 +3,11 @@ class BoardroomsController < ApplicationController
 
   def show
     @boardroom = Boardroom.find_by(id: params[:id])
-    unless @boardroom.blank?
+    if @boardroom.present?
       @chats = @boardroom.chats
     else
       redirect_to root_path
-    end    
+    end
   end
 
   def create
@@ -19,7 +19,7 @@ class BoardroomsController < ApplicationController
 
   private
 
-    def boardroom_params
-      params.require(:boardroom).permit(:article_id)
-    end
+  def boardroom_params
+    params.require(:boardroom).permit(:article_id)
+  end
 end

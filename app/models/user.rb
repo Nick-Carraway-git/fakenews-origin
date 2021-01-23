@@ -10,8 +10,8 @@ class User < ApplicationRecord
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
   has_many :passive_relationships, class_name:  "Relationship",
-                                  foreign_key: "followed_id",
-                                  dependent:   :destroy
+                                   foreign_key: "followed_id",
+                                   dependent:   :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :favorites, dependent: :destroy
@@ -21,7 +21,7 @@ class User < ApplicationRecord
   has_one_attached :image
 
   validates :name, presence: true, uniqueness: true, length: { maximum: 30 }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, uniqueness: true, length: { maximum: 70 },
                     format: { with: VALID_EMAIL_REGEX }
   validates :introduce, length: { maximum: 400 }
@@ -44,7 +44,8 @@ class User < ApplicationRecord
   end
 
   def self.guest
-    find_or_create_by!(name: 'Guest', username: 'GuestChan', email: 'guest_user@example.com', introduce: '私はゲストちゃんです。私は削除/編集できません。') do |user|
+    find_or_create_by!(name: 'Guest', username: 'GuestChan', email: 'guest_user@example.com',
+                       introduce: '私はゲストちゃんです。私は削除/編集できません。') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
   end
@@ -72,14 +73,14 @@ class User < ApplicationRecord
 
   # いいねを解除する
   def unfavor(favorite_article)
-    self.favorites.find_by(article_id: favorite_article.id).destroy
+    favorites.find_by(article_id: favorite_article.id).destroy
   end
 
   # お気に入り済みならtrueを返す
   def favoring?(favorite_article_id)
-    nowFavorite = Favorite.find_by(article_id: favorite_article_id)
-    if nowFavorite != nil
-      return nowFavorite[:user_id] == self.id
+    now_favorite = Favorite.find_by(article_id: favorite_article_id)
+    if !now_favorite.nil?
+      return now_favorite[:user_id] == id
     end
   end
 end

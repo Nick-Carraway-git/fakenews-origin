@@ -8,10 +8,12 @@ class Article < ApplicationRecord
   validates :title, presence: true, uniqueness: true, length: { maximum: 70 }
   validates :content, presence: true, length: { maximum: 4000 }
   validates :image_description, presence: true, length: { maximum: 70 }
-  validates :image,   content_type: { in: %w[image/jpeg image/png],
-                                    message: "must be a valid image format" },
-                      size:         { less_than: 3.megabytes,
-                                    message: "should be less than 3MB" }
+  validates :image,   content_type: {
+                        in: %w[image/jpeg image/png],
+                        message: "must be a valid image format", },
+                      size:         {
+                        less_than: 3.megabytes,
+                        message: "should be less than 3MB", }
   validate  :image_presence
 
   # 中間テーブルのための関連づけ

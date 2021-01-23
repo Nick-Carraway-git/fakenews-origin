@@ -36,21 +36,21 @@ class UsersController < ApplicationController
 
   def sended
     @title = "Sended"
-    @minimails = current_user.send_minimails
+    @minimails = current_user.send_minimails.limit(100)
     render 'minimails/index_minimails'
   end
 
   def recieved
     @title = "Recieved"
     @user  = User.find(params[:id])
-    @minimails = current_user.recieve_minimails
+    @minimails = current_user.recieve_minimails.limit(100)
     render 'minimails/index_minimails'
   end
 
   private
 
-    def mail_checker
-      check = current_user.id.equal?(params[:id].to_i)
-      redirect_to root_url if check == false
-    end
+  def mail_checker
+    check = current_user.id.equal?(params[:id].to_i)
+    redirect_to root_url if check == false
+  end
 end

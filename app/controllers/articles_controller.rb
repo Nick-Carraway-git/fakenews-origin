@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :destroy]
-  before_action :correct_user,   only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.all.page(params[:page]).per(8)
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    unless params[:article][:category_ids] == [""]
+    if params[:article][:category_ids] != [""]
       @article = current_user.articles.build(article_params)
       @article.image.attach(params[:article][:image])
       if @article.save
@@ -55,12 +55,12 @@ class ArticlesController < ApplicationController
 
   private
 
-    def article_params
-      params.require(:article).permit(:title, :content, :image, :image_description, { category_ids: [] })
-    end
+  def article_params
+    params.require(:article).permit(:title, :content, :image, :image_description, { category_ids: [] })
+  end
 
-    def correct_user
-      @article = current_user.articles.find_by(id: params[:id])
-      redirect_to root_url if @article.nil?
-    end
+  def correct_user
+    @article = current_user.articles.find_by(id: params[:id])
+    redirect_to root_url if @article.nil?
+  end
 end

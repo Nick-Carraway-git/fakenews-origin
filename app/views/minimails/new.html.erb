@@ -1,9 +1,9 @@
 <h4 class="create-mail-header">メール作成</h4>
 <p>送信者: <%= current_user.name %></p>
-<p>受信者: <%= @recieveUser.name %></p>
+<p>受信者: <%= @recieve_user.name %></p>
 <%= form_with(model: @minimail, local: true) do |f| %>
   <%= f.hidden_field :sender_id, :value => current_user.id %>
-  <%= f.hidden_field :reciever_id, :value => @recieveUser.id %>
+  <%= f.hidden_field :reciever_id, :value => @recieve_user.id %>
   <div class="article-new-field">
     <%= f.text_field :title, class: 'title-box', placeholder: ' 件名を追加' %>
   </div>
