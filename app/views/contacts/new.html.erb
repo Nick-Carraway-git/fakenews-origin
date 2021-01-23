@@ -1,0 +1,14 @@
+<h4 class="create-contact-header">お問い合わせ</h4>
+
+<%= form_with(model: @contact, local: true) do |f| %>
+  <div class="contact-new-field">
+    <%= f.text_field :name, class: 'contact-name-box', placeholder: ' 件名を入力(必須)', id: 'contact-name-box' %>
+  </div>
+  <div class="contact-new-field">
+    <%= f.text_field :email, class: 'content-email-box', placeholder: ' 返信先メールアドレスを入力(必須)', id: 'content-email-box' %>
+  </div>
+  <div class="contact-new-field">
+    <%= f.text_area :message, class: 'content-message-box', placeholder: ' お問い合わせ内容を入力(必須)', id: 'content-message-box', rows: 6 %>
+  </div>
+  <%= f.submit "送信", class: "btn send-btn" %>
+<% end %>
