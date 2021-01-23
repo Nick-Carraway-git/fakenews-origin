@@ -1,4 +1,5 @@
 if (location.pathname !== '/users/sign_up') {
+  if (location.pathname !== '/users/password') {
   (function() {
     if( window.localStorage ) {
       if( !localStorage.getItem('first') ) {
@@ -9,4 +10,4 @@ if (location.pathname !== '/users/sign_up') {
         localStorage.removeItem('first');
       }
   })();
-}
+}}
