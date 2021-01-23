@@ -87,13 +87,13 @@
   <div class="row">
     <div class="col-12 col-md-8 article-thumnails">
       <h5 class="user-articles-heading">My Articles</h5>
-      <div id="articles_list"><%= render 'articles_list' %></div>
-      <div class="more"><%= link_to_next_page @articles, 'もっと見る', remote: true, id: 'view_more_a', :param_name => 'articles_page' %></div>
+      <div id="articles_list"><%= render 'articles/articles_list' %></div>
+      <div class="more"><%= link_to_next_page @articles, 'もっと見る', remote: true, class: 'more-btn', id: 'view_more_a', :param_name => 'articles_page' %></div>
     </div>
     <div class="col-12 col-md-4">
       <h5 class="user-boards-heading">My Borads</h5>
-      <div id="boards_list"><%= render 'boards_list' %></div>
-      <div class="more"><%= link_to_next_page @boards, 'もっと見る', remote: true, id: 'view_more_b', :param_name => 'boards_page' %></div>
+      <div id="boards_list"><%= render 'boardrooms/boards_list' %></div>
+      <div class="more"><%= link_to_next_page @boards, 'もっと見る', remote: true, class: 'more-btn', id: 'view_more_b', :param_name => 'boards_page' %></div>
     </div>
   </div>
 </div>

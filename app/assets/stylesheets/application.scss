@@ -571,6 +571,23 @@ footer {
   margin: 40px 0;
 }
 
+.more {
+  text-align: center;
+}
+
+.more-btn {
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 3px;
+  color: #4f595d;
+  padding: 7px 20px;
+}
+
+.more-btn:hover {
+  color: #4f595d;
+}
+
 /* user(tab) */
 .menu-tab-box {
   margin-bottom: 40px;

@@ -5,7 +5,7 @@
     <h4>人気のライター</h4>
     <% if @rankers.any? %>
       <ul class="rankers-ul">
-        <%= render partial: 'users/ranking', collection: @rankers, as: :ranker %>
+        <%= render partial: 'ranking', collection: @rankers, as: :ranker %>
       </ul>
     <% end %>
   </section>
