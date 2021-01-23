@@ -1,55 +1,8 @@
-<!-- user-profile-boxは後でパーシャル化(show, show_follow) -->
+<!-- user profile -->
 <%= render 'user_profile', user: @user %>
 
-<!-- partial化 -->
-<div class="menu-tab-box">
-  <ul class="nav nav-tabs nav-justified">
-    <li class="nav-item menu-tab">
-      <% if @title.blank? %>
-        <%= link_to user_path(@user), class: 'nav-link active' do %>
-          <span>メインメニュー</span>
-        <% end %>
-      <% else %>
-        <%= link_to user_path(@user), class: 'nav-link' do %>
-          <span>メインメニュー</span>
-        <% end %>
-      <% end %>
-    </li>
-    <li class="nav-item menu-tab">
-      <% if @title == 'Following' %>
-        <%= link_to following_user_path(@user), class: 'nav-link active' do %>
-          <span>フォロー中</span>
-        <% end %>
-      <% else %>
-        <%= link_to following_user_path(@user), class: 'nav-link' do %>
-          <span>フォロー中<span>
-        <% end %>
-      <% end %>
-    </li>
-    <li class="nav-item menu-tab">
-      <% if @title == 'Followers' %>
-        <%= link_to followers_user_path(@user), class: 'nav-link active' do %>
-          <span>フォロワー</span>
-        <% end %>
-      <% else %>
-        <%= link_to followers_user_path(@user), class: 'nav-link' do %>
-          <span>フォロワー</span>
-        <% end %>
-      <% end %>
-    </li>
-    <li class="nav-item menu-tab">
-      <% if @title == 'Favorite Articles' %>
-        <%= link_to favoring_user_path(@user), class: 'nav-link active' do %>
-          <span>お気に入り</span>
-        <% end %>
-      <% else %>
-        <%= link_to favoring_user_path(@user), class: 'nav-link' do %>
-          <span>お気に入り</span>
-        <% end %>
-      <% end %>
-    </li>
-  </ul>
-</div>
+<!-- user menu-tab -->
+<%= render 'user_menutab', user: @user %>
 
 <div class="follow-member-box">
   <h5 class="follow-heading"><%= @title %></h5>
