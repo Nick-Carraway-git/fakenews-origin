@@ -358,7 +358,7 @@ body {
 
 @media screen and (min-width: 1200px) {
   .resistration-guide {
-    margin-top: -100px;
+    // margin-top: -100px;
   }
 }
 
@@ -1068,6 +1068,11 @@ footer {
   padding: 8px 22px;
   background-color: #223a70;
   color: #f3f3f3;
+}
+
+.send-btn:hover {
+  color: #f3f3f3;
+  opacity: 0.8;
 }
 
 /* chat */
