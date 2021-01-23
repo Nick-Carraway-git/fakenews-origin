@@ -48,7 +48,7 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-# データベースを再度createすることで対処済
+# データベースを再度createすることで値を変更、対処済
 production:
   <<: *default
   database: <%= ENV['DATABASE_DATABASE'] %>
