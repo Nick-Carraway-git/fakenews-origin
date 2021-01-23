@@ -8,14 +8,15 @@ class ArticlesController < ApplicationController
 
   def show
     @article = Article.find_by(id: params[:id])
+    if @article.blank?
+      redirect_to root_path
+    end
     if user_signed_in?
       @boardroom = Boardroom.new
       @boardrooms = Boardroom.where(article_id: @article)
       if @boardrooms.size > BRANDNEW_BOARD_NOM
         @past_boardrooms = @boardrooms.last(@boardrooms.length - BRANDNEW_BOARD_NOM)
       end
-      # @boardrooms = current_user.boardrooms
-      # @nonboardrooms = Boardroom.where(id: UserBoardroom.where.not(user_id: current_user.id).pluck(:id))
     end
   end
 

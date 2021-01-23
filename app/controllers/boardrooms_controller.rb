@@ -2,8 +2,12 @@ class BoardroomsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @boardroom = Boardroom.find(params[:id])
-    @chats = @boardroom.chats
+    @boardroom = Boardroom.find_by(id: params[:id])
+    unless @boardroom.blank?
+      @chats = @boardroom.chats
+    else
+      redirect_to root_path
+    end    
   end
 
   def create
