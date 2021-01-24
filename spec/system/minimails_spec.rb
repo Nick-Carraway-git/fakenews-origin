@@ -3,8 +3,9 @@ require 'rails_helper'
 RSpec.describe "Minimails", type: :system do
   let(:user1) { create(:user) }
   let(:user2) { create(:user) }
-  let!(:minimail) { user1.send_minimails.create(reciever_id: user2.id,
-                                                title: 'Title1', content: 'Content1') }
+  let!(:minimail) do
+    user1.send_minimails.create(reciever_id: user2.id, title: 'Title1', content: 'Content1')
+  end
 
   describe "ミニメール作成テスト" do
     before do

@@ -3,15 +3,19 @@ require 'rails_helper'
 RSpec.describe Minimail, type: :model do
   let(:user1) { create(:user) }
   let(:user2) { create(:user) }
-  let!(:minimail1) { user1.send_minimails.build(reciever_id: user2.id,
-                                               title: 'Title1', content: 'Content1') }
-  let!(:minimail2) { user1.recieve_minimails.build(sender_id: user2.id,
-                                               title: 'Title2', content: 'Content2') }
+  let!(:minimail1) do
+    user1.send_minimails.build(reciever_id: user2.id, title: 'Title1', content: 'Content1')
+  end
+  let!(:minimail2) do
+    user1.recieve_minimails.build(sender_id: user2.id, title: 'Title2', content: 'Content2')
+  end
 
   let!(:user3) { create(:user) }
   let!(:user4) { create(:user) }
-  let!(:minimail3) { user3.send_minimails.create(reciever_id: user4.id,
-                                                title: 'Title1', content: 'Content1') }
+  let!(:minimail3) do
+    user3.send_minimails.create(reciever_id: user4.id, title: 'Title1', content: 'Content1')
+  end
+
   describe "Minimailモデルの作成" do
     context "パラメータが有効な場合" do
       it "送信者、受信者、件名、本文があれば有効" do

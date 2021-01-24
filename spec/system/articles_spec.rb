@@ -6,10 +6,8 @@ RSpec.describe 'Articles', type: :system do
   let(:article2) { create(:article) }
   let!(:category1) { create(:category) }
   let!(:category2) { create(:category) }
-  let!(:article_category1) { create(:article_category, article_id: article1.id,
-                                                       category_id: category1.id) }
-  let!(:article_category2) { create(:article_category, article_id: article2.id,
-                                                       category_id: category2.id) }
+  let!(:article_category1) { create(:article_category, article_id: article1.id, category_id: category1.id) }
+  let!(:article_category2) { create(:article_category, article_id: article2.id, category_id: category2.id) }
   let!(:boardroom) { create(:boardroom, article_id: article1.id) }
 
   describe "記事詳細ページのテスト" do

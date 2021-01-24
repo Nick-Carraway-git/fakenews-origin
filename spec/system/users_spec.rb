@@ -5,18 +5,13 @@ RSpec.describe 'Users', type: :system do
   let(:user2) { create(:user) }
   let!(:article1) { create(:article, user_id: user1.id) }
   let!(:article2) { create(:article, user_id: user2.id) }
-  let(:relationship1) { create(:relationship, follower_id: user1.id,
-                                              followed_id: user2.id) }
-  let(:relationship2) { create(:relationship, follower_id: user2.id,
-                                              followed_id: user1.id) }
+  let(:relationship1) { create(:relationship, follower_id: user1.id, followed_id: user2.id) }
+  let(:relationship2) { create(:relationship, follower_id: user2.id, followed_id: user1.id) }
   let!(:boardroom1) { create(:boardroom, article_id: article1.id) }
   let!(:boardroom2) { create(:boardroom, article_id: article2.id) }
-  let!(:user_boardroom1) { create(:user_boardroom, boardroom_id: boardroom1.id,
-                                                   user_id: user1.id) }
-  let!(:user_boardroom2) { create(:user_boardroom, boardroom_id: boardroom2.id,
-                                                   user_id: user1.id) }
+  let!(:user_boardroom1) { create(:user_boardroom, boardroom_id: boardroom1.id, user_id: user1.id) }
+  let!(:user_boardroom2) { create(:user_boardroom, boardroom_id: boardroom2.id, user_id: user1.id) }
   let!(:favorite) { create(:favorite, user_id: user1.id, article_id: article1.id) }
-
 
   describe "メインメニューのテスト" do
     context "ログインユーザーの場合" do

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :article do
-    sequence(:title) { |n| "Title#{n}"}
+    sequence(:title) { |n| "Title#{n}" }
     content { "MyText" }
     association :user, factory: :user
     image_description { "AAA" }
@@ -9,8 +9,8 @@ FactoryBot.define do
     end
   end
 
-  factory :article_model ,class: Article do
-    sequence(:title) { |n| "Title#{n}"}
+  factory :article_model, class: "Article" do
+    sequence(:title) { |n| "Title#{n}" }
     content { "MyText" }
     association :user, factory: :user
     user_id { 1 }

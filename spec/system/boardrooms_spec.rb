@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Boardrooms", type: :system do
   let(:user) { create(:user) }
   let(:article) { create(:article) }
-  let(:boardroom) { create(:boardroom, article_id: article.id)}
+  let(:boardroom) { create(:boardroom, article_id: article.id) }
   let!(:user_boardroom) { create(:user_boardroom, user_id: user.id, boardroom_id: boardroom.id) }
 
   describe "ボードルーム機能のテスト" do

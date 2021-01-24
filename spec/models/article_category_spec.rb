@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe ArticleCategory, type: :model do
   let!(:article) { create(:article) }
   let!(:category) { create(:category) }
-  let!(:article_category) { create(:article_category, article_id: article.id,
-                                                     category_id: category.id) }
+  let!(:article_category) { create(:article_category, article_id: article.id, category_id: category.id) }
 
   describe "ArticleCategoryモデルの作成" do
     it "親記事、カテゴリーがあれば有効" do
