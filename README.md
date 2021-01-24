@@ -24,8 +24,8 @@ JQuery
 Heroku Docker AWS S3  
 ■ テストフレームワーク  
 Rspec  
-■セッション管理
-devise
+■セッション管理  
+devise  
 ■ その他使用ツールなど  
 Git Github Rubocop CircleCI  
 
