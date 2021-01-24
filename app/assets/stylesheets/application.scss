@@ -284,8 +284,8 @@ body {
 
 .news-li p {
   color: #080808;
-  font-size: 1.3em;
-  line-height: 1.2em;
+  font-size: 1.1em;
+  line-height: 1.5em;
   font-weight: 300;
 }
 
@@ -1042,6 +1042,7 @@ footer {
 
 .minimails-box {
   max-height:600px;
+  overflow: scroll;
 }
 
 .mail-outline {
@@ -1121,6 +1122,49 @@ footer {
 .send-btn:hover {
   color: #f3f3f3;
   opacity: 0.8;
+}
+
+/* specification */
+.develop-spec-box {
+  margin-top: 100px;
+  padding: 0px 10px;
+  color: #4f595d;
+}
+
+.specification-header {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.specification-contents {
+  margin-bottom: 50px;
+  padding-left: 10px;
+  border-left: 3px solid #223a70;
+}
+
+.development-header {
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.development-contents {
+  margin-bottom: 50px;
+  padding-left: 10px;
+  border-left: 3px solid #223a70;
+}
+
+@media screen and (min-width: 700px) {
+  .sales-block {
+    margin-top: 20px;
+  }
+}
+
+.salespoints {
+  list-style-type: none;
+}
+
+.salespoints li {
+  text-decoration: underline;;
 }
 
 /* chat */

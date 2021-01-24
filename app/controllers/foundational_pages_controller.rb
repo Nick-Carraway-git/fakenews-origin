@@ -4,7 +4,7 @@ class FoundationalPagesController < ApplicationController
     @rankers = User.joins(:articles).group(:id).order("count(articles.user_id) DESC").limit(5).shuffle
   end
 
-  def help
+  def specification
   end
 
   def contact

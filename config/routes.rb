@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   root 'foundational_pages#index'
   get '/',                        to: 'foundational_pages#index'
   get '/index',                   to: 'foundational_pages#index'
-  get '/help',                    to: 'foundational_pages#help'
+  get '/specification',           to: 'foundational_pages#specification'
   get '/terms',                   to: 'foundational_pages#terms'
   get '/aboutus',                 to: 'foundational_pages#aboutus'
   get '/search',                  to: 'foundational_pages#search'

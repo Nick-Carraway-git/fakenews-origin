@@ -31,6 +31,6 @@ class MinimailsController < ApplicationController
   private
 
   def minimail_params
-    params.require(:minimail).permit(:sender_id, :reciever_id, :title, :content, :reply_id)
+    params.require(:minimail).permit(:sender_id, :reciever_id, :title, :content)
   end
 end
