@@ -2,13 +2,16 @@
 
 <%= form_with(model: @contact, local: true) do |f| %>
   <div class="contact-new-field">
-    <%= f.text_field :name, class: 'contact-name-box', placeholder: ' 件名を入力(必須)', id: 'contact-name-box' %>
+    <%= f.label :name, '件名' %><span class="essential">必須</span>
+    <%= f.text_field :name, autofocus: true, class: 'contact-name-box', id: 'contact-name-box' %>
   </div>
   <div class="contact-new-field">
-    <%= f.text_field :email, class: 'content-email-box', placeholder: ' 返信先メールアドレスを入力(必須)', id: 'content-email-box' %>
+    <%= f.label :email, '返信先メールアドレス' %><span class="essential">必須</span>
+    <%= f.text_field :email, class: 'content-email-box', id: 'content-email-box' %>
   </div>
   <div class="contact-new-field">
-    <%= f.text_area :message, class: 'content-message-box', placeholder: ' お問い合わせ内容を入力(必須)', id: 'content-message-box', rows: 6 %>
+    <%= f.label :message, 'お問い合わせ内容' %><span class="essential">必須</span>
+    <%= f.text_area :message, class: 'content-message-box', id: 'content-message-box', rows: 6 %>
   </div>
   <%= f.submit "送信", class: "btn send-btn" %>
 <% end %>
