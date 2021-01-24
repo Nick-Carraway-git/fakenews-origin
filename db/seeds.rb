@@ -22,7 +22,7 @@ User.create!(name: 'Guest', username: 'GuestChan', email: 'guest_user@example.co
                 end
 
 # other Users
-30.times do |n|
+25.times do |n|
   name  = "BotMan Type-#{n+1}"
   email = "example-#{n+1}@fakenews.com"
   password = "password"
@@ -36,14 +36,14 @@ end
 # Relationships
 users = User.all
 user  = users.first
-following = users[2..30]
-followers = users[3..25]
+following = users[2..23]
+followers = users[3..18]
 following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 # Minimails
-senders = users[2..30]
-recievers = users[3..25]
+senders = users[2..10]
+recievers = users[15..23]
 recievers.each { |reciever| user.send_minimails.create!(reciever_id: reciever.id,
                                                         title: "Sended Mail #{reciever.id}",
                                                         content: "Hello BotMan Type-#{reciever.id}") }

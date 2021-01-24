@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.all.page(params[:page]).per(8)
+    @articles = Article.all.page(params[:page]).per(4)
   end
 
   def show

@@ -1057,6 +1057,21 @@ footer {
   max-width: 40px;
 }
 
+.sender-name {
+  display: block;
+  color: #080808;
+  background-color: #fff;
+  text-align: center;
+  padding: 8px 15px;
+  border-radius: 3px;
+}
+
+.sender-name:hover {
+  text-decoration: none;
+  color: #080808;
+  opacity: 0.8;
+}
+
 .mail-title {
   display: block;
   color: #080808;

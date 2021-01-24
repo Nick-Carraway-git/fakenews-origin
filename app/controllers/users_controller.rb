@@ -36,14 +36,14 @@ class UsersController < ApplicationController
 
   def sended
     @title = "Sended"
-    @minimails = current_user.send_minimails.limit(100)
+    @minimails = current_user.send_minimails.limit(10)
     render 'minimails/index_minimails'
   end
 
   def recieved
     @title = "Recieved"
     @user  = User.find(params[:id])
-    @minimails = current_user.recieve_minimails.limit(100)
+    @minimails = current_user.recieve_minimails.limit(10)
     render 'minimails/index_minimails'
   end
 

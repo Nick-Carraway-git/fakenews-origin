@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
     autoplaySpeed: 3500,
     dots: true,
     centerMode: true,
-    slidesToShow: 5,
+    slidesToShow: 3,
     centerPadding: '20%',
     variableWidth: true,
   })

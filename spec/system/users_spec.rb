@@ -74,9 +74,9 @@ RSpec.describe 'Users', type: :system do
       it "マイボードの動作確認" do
         within '.user-articles-box' do
           # ボードリンクの確認
-          expect(page).to have_link "#{boardroom1.article.title.slice(0..15)} Part.#{boardroom1.id}",
+          expect(page).to have_link "#{boardroom1.article.title.slice(0..15)}",
                                     href: boardroom_path(boardroom1.id)
-          expect(page).to have_link "#{boardroom2.article.title.slice(0..15)} Part.#{boardroom2.id}",
+          expect(page).to have_link "#{boardroom2.article.title.slice(0..15)}",
                                     href: boardroom_path(boardroom2.id)
         end
       end
