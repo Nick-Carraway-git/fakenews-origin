@@ -30,4 +30,7 @@ devise
 Git Github Rubocop CircleCI  
 
 ## デプロイ先
-https://fakenews-origin.herokuapp.com/
+https://fakenews-origin.herokuapp.com/  
+
+## リポジトリ  
+https://github.com/Nick-Carraway-git/fakenews-origin
