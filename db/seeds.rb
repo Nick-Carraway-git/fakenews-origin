@@ -24,7 +24,7 @@ User.create!(name: 'Guest', username: 'GuestChan', email: 'guest_user@example.co
 # other Users
 30.times do |n|
   name  = "BotMan Type-#{n+1}"
-  email = "example-#{n+1}@railstutorial.org"
+  email = "example-#{n+1}@fakenews.com"
   password = "password"
   introduce = "Hi! I'm BotMan Type-#{n+1}"
   User.create!(name: name,

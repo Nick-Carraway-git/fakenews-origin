@@ -32,7 +32,7 @@ RSpec.describe "Boardrooms", type: :system do
 
       it "ボードルームの表示" do
         within '.chat-heading' do
-          expect(page).to have_content "#{article.title} Part.#{article.boardrooms.first.id}"
+          expect(page).to have_content "#{article.title}"
         end
       end
 

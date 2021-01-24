@@ -43,7 +43,7 @@ RSpec.describe 'Articles', type: :system do
       # 最新のボードドロップダウンの動作
       within '.now-boardroom-shower' do
         find('.dropdown-toggle').click
-        expect(page).to have_content "ボード#{boardroom.id}"
+        expect(page).to have_content "ボード1"
       end
 
       # ボード作成の動作

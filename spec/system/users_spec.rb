@@ -35,8 +35,8 @@ RSpec.describe 'Users', type: :system do
           # 投稿記事/参加ボードの表示
           expect(page).to have_button article1.title
           expect(page).to have_selector 'img.thumbnail'
-          expect(page).to have_link "#{boardroom1.article.title.slice(0..15)} Part.#{boardroom1.id}"
-          expect(page).to have_link "#{boardroom2.article.title.slice(0..15)} Part.#{boardroom2.id}"
+          expect(page).to have_link "#{boardroom1.article.title.slice(0..15)}"
+          expect(page).to have_link "#{boardroom2.article.title.slice(0..15)}"
         end
       end
 
