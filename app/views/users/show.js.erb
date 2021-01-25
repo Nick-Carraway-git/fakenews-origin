@@ -1,7 +1,7 @@
 <% if params[:articles_page] %>
   $('#articles_list').append("<%= escape_javascript(render 'articles/articles_list', object: @articles) %>");
   $("#view_more_a").replaceWith("<%= escape_javascript(
-  link_to_next_page(@boards, 'もっと見る', remote: true, id: 'view_more_a', :param_name => 'articles_page')) %>");
+  link_to_next_page(@articles, 'もっと見る', remote: true, id: 'view_more_a', :param_name => 'articles_page')) %>");
 <% else %>
   $('#boards_list').append("<%= escape_javascript(render 'boardrooms/boards_list', object: @boards) %>");
   $("#view_more_b").replaceWith("<%= escape_javascript(
