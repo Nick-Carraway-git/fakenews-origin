@@ -1,6 +1,6 @@
 class FoundationalPagesController < ApplicationController
   def index
-    @articles = Article.distinct.where(created_at: Time.now - 7.days...Time.now).sample(MAX_SLIDE_NUM)
+    @articles = Article.where(created_at: Time.now - 240.days...Time.now).distinct.sample(MAX_SLIDE_NUM)
     @rankers = User.joins(:articles).group(:id).order("count(articles.user_id) DESC").limit(5).shuffle
   end
 
